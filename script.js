@@ -1,0 +1,1 @@
+const target=new Date('2027-07-18T16:00:00');function tick(){const d=target-new Date();if(d<=0){count.textContent='TODAY IS THE DAY';return}const days=Math.floor(d/864e5),h=Math.floor(d/36e5)%24,m=Math.floor(d/6e4)%60;count.textContent=`${String(days).padStart(3,'0')} DAYS · ${String(h).padStart(2,'0')} HOURS · ${String(m).padStart(2,'0')} MIN`}tick();setInterval(tick,60000);
