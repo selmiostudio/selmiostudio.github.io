@@ -28,7 +28,111 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+
+<body class="locked">
+
+
+<!-- ======================================================
+     OPENING INVITATION
+====================================================== -->
+
+<section
+  class="invitation-intro"
+  id="invitationIntro"
+  aria-label="Open wedding invitation"
+>
+
+  <div class="invitation-intro__content">
+
+    <p class="invitation-intro__eyebrow">
+      AMELIA &amp; OLIVER
+    </p>
+
+
+    <div
+      class="invitation-envelope"
+      id="invitationEnvelope"
+    >
+
+      <!-- ENVELOPE BACK -->
+
+      <div class="envelope-back"></div>
+
+
+      <!-- INVITATION CARD -->
+
+      <div class="invitation-card">
+
+        <div class="invitation-card__flowers"></div>
+
+        <h2>
+          Amelia &amp; Oliver
+        </h2>
+
+        <span class="invitation-card__line"></span>
+
+        <p>
+          24 · 05 · 2027
+        </p>
+
+      </div>
+
+
+      <!-- ENVELOPE FLAP -->
+
+      <div class="envelope-flap"></div>
+
+
+      <!-- ENVELOPE FRONT -->
+
+      <div class="envelope-front">
+
+        <div class="envelope-front-left"></div>
+
+        <div class="envelope-front-right"></div>
+
+      </div>
+
+
+      <!-- WAX SEAL -->
+
+      <button
+        class="wax-seal"
+        id="waxSeal"
+        type="button"
+        aria-label="Open invitation"
+      >
+
+        <span class="wax-seal__inner">
+
+          <span class="wax-seal__letters">
+            A&amp;O
+          </span>
+
+        </span>
+
+      </button>
+
+    </div>
+
+
+    <!-- OPEN BUTTON -->
+
+    <button
+      class="tap-to-open"
+      id="tapToOpen"
+      type="button"
+    >
+      TAP TO OPEN
+
+      <span></span>
+    </button>
+
+  </div>
+
+</section>
+
+
 
 <!-- ======================================================
      WEBSITE
@@ -57,9 +161,11 @@
 
   <div class="hero__shade"></div>
 
+
   <div class="hero__brand">
     SELMIO
   </div>
+
 
   <nav class="hero__nav">
 
@@ -76,6 +182,7 @@
     </a>
 
   </nav>
+
 
   <div class="hero__content">
 
@@ -95,6 +202,7 @@
 
   </div>
 
+
   <a
     class="hero__scroll"
     href="#story"
@@ -104,6 +212,7 @@
   </a>
 
 </section>
+
 
 
 <!-- ======================================================
@@ -117,6 +226,7 @@
 
   <div class="story__inner">
 
+
     <div class="story__text">
 
       <p class="section-label">
@@ -124,6 +234,7 @@
       </p>
 
       <span class="section-line"></span>
+
 
       <p>
         Two hearts, one journey.
@@ -143,27 +254,35 @@
 
     </div>
 
+
     <img
       class="story__branch"
       src="images/branch-line.png"
       alt=""
     >
 
+
     <div class="story__photos">
 
       <figure class="polaroid polaroid--one">
+
         <img
           src="images/story-01.jpg"
           alt="Amelia and Oliver"
         >
+
       </figure>
 
+
       <figure class="polaroid polaroid--two">
+
         <img
           src="images/story-02.jpg"
           alt="Amelia and Oliver"
         >
+
       </figure>
+
 
       <span class="story__note">
         Better
@@ -176,6 +295,7 @@
   </div>
 
 </section>
+
 
 
 <!-- ======================================================
@@ -195,33 +315,43 @@
     class="section-line section-line--center"
   ></span>
 
+
   <div
     class="gallery__grid"
     id="galleryGrid"
   >
 
     <figure>
+
       <img
         src="images/gallery-01.jpg"
         alt="Wedding dinner"
       >
+
     </figure>
 
+
     <figure>
+
       <img
         src="images/gallery-02.jpg"
         alt="Lake Como"
       >
+
     </figure>
 
+
     <figure>
+
       <img
         src="images/gallery-03.jpg"
         alt="Wedding flowers"
       >
+
     </figure>
 
   </div>
+
 
   <div class="gallery__controls">
 
@@ -233,9 +363,11 @@
       ←
     </button>
 
+
     <span id="galleryCounter">
       1 / 3
     </span>
+
 
     <button
       type="button"
@@ -250,11 +382,13 @@
 </section>
 
 
+
 <!-- ======================================================
      04 — SAVE THE DATE
 ====================================================== -->
 
 <section class="save-date">
+
 
   <div class="save-date__envelope">
 
@@ -265,6 +399,7 @@
 
   </div>
 
+
   <div class="save-date__text">
 
     <p class="section-label section-label--center">
@@ -273,19 +408,23 @@
       BEGINS
     </p>
 
+
     <span
       class="section-line section-line--center"
     ></span>
 
+
     <h2>
       24 · 05 · 2027
     </h2>
+
 
     <p>
       LAKE COMO, ITALY
     </p>
 
   </div>
+
 
   <div class="save-date__lake">
 
@@ -296,6 +435,7 @@
 
   </div>
 
+
   <blockquote>
     “Some stories are written in the stars,
     ours is written in every moment we share.”
@@ -304,25 +444,32 @@
 </section>
 
 
+
 <!-- ======================================================
      05 — COUNTDOWN
 ====================================================== -->
 
 <section class="countdown">
 
+
   <div class="countdown__background"></div>
+
 
   <p class="section-label section-label--light">
     COUNTING DOWN
   </p>
 
+
   <span
     class="section-line section-line--light"
   ></span>
 
+
   <div class="countdown__numbers">
 
+
     <div>
+
       <strong id="days">
         000
       </strong>
@@ -330,9 +477,12 @@
       <span>
         DAYS
       </span>
+
     </div>
 
+
     <div>
+
       <strong id="hours">
         00
       </strong>
@@ -340,9 +490,12 @@
       <span>
         HOURS
       </span>
+
     </div>
 
+
     <div>
+
       <strong id="minutes">
         00
       </strong>
@@ -350,9 +503,12 @@
       <span>
         MINUTES
       </span>
+
     </div>
 
+
     <div>
+
       <strong id="seconds">
         00
       </strong>
@@ -360,11 +516,14 @@
       <span>
         SECONDS
       </span>
+
     </div>
+
 
   </div>
 
 </section>
+
 
 
 <!-- ======================================================
@@ -380,11 +539,14 @@
     THE DETAILS
   </p>
 
+
   <span
     class="section-line section-line--center"
   ></span>
 
+
   <div class="details__grid">
+
 
     <article>
 
@@ -404,6 +566,7 @@
 
     </article>
 
+
     <article>
 
       <span class="details__icon">
@@ -421,6 +584,7 @@
       </p>
 
     </article>
+
 
     <article>
 
@@ -440,9 +604,11 @@
 
     </article>
 
+
   </div>
 
 </section>
+
 
 
 <!-- ======================================================
@@ -451,39 +617,51 @@
 
 <section class="dress-code section-light">
 
+
   <img
     class="dress-code__branch"
     src="images/branch-line.png"
     alt=""
   >
 
+
   <p class="section-label section-label--center">
     DRESS CODE
   </p>
+
 
   <span
     class="section-line section-line--center"
   ></span>
 
+
   <p class="dress-code__subtitle">
     Elegant attire
   </p>
 
+
   <div class="dress-code__colors">
 
     <span class="color color--wine"></span>
+
     <span class="color color--rose"></span>
+
     <span class="color color--cream"></span>
+
     <span class="color color--beige"></span>
+
     <span class="color color--olive"></span>
 
   </div>
+
 
   <p class="dress-code__note">
     We would love to see you in these colors.
   </p>
 
+
 </section>
+
 
 
 <!-- ======================================================
@@ -491,6 +669,7 @@
 ====================================================== -->
 
 <section class="day section-light">
+
 
   <div class="day__photos">
 
@@ -506,13 +685,17 @@
 
   </div>
 
+
   <div class="day__schedule">
+
 
     <p class="section-label">
       THE DAY
     </p>
 
+
     <span class="section-line"></span>
+
 
     <article>
 
@@ -521,6 +704,7 @@
       </time>
 
       <div>
+
         <strong>
           Guests Arrival
         </strong>
@@ -528,9 +712,11 @@
         <p>
           Welcome drinks
         </p>
+
       </div>
 
     </article>
+
 
     <article>
 
@@ -539,6 +725,7 @@
       </time>
 
       <div>
+
         <strong>
           Ceremony
         </strong>
@@ -546,9 +733,11 @@
         <p>
           Exchange of vows
         </p>
+
       </div>
 
     </article>
+
 
     <article>
 
@@ -557,6 +746,7 @@
       </time>
 
       <div>
+
         <strong>
           Cocktail Hour
         </strong>
@@ -564,9 +754,11 @@
         <p>
           Drinks &amp; Canapés
         </p>
+
       </div>
 
     </article>
+
 
     <article>
 
@@ -575,6 +767,7 @@
       </time>
 
       <div>
+
         <strong>
           Reception Dinner
         </strong>
@@ -582,9 +775,11 @@
         <p>
           Dinner &amp; Speeches
         </p>
+
       </div>
 
     </article>
+
 
     <article>
 
@@ -593,6 +788,7 @@
       </time>
 
       <div>
+
         <strong>
           Let's Celebrate
         </strong>
@@ -600,13 +796,16 @@
         <p>
           Dancing the night away
         </p>
+
       </div>
 
     </article>
 
+
   </div>
 
 </section>
+
 
 
 <!-- ======================================================
@@ -615,12 +814,15 @@
 
 <section class="celebration">
 
+
   <img
     src="images/celebration.jpg"
     alt="Wedding celebration"
   >
 
+
   <div class="celebration__overlay"></div>
+
 
   <div class="celebration__text">
 
@@ -634,7 +836,9 @@
 
   </div>
 
+
 </section>
+
 
 
 <!-- ======================================================
@@ -646,32 +850,39 @@
   id="rsvp"
 >
 
+
   <img
     class="rsvp__branch"
     src="images/branch-line.png"
     alt=""
   >
 
+
   <p class="section-label section-label--center">
     RSVP
   </p>
+
 
   <span
     class="section-line section-line--center"
   ></span>
 
+
   <p class="rsvp__intro">
     We hope you can celebrate with us.
   </p>
+
 
   <p class="rsvp__deadline">
     Kindly reply by 1 April 2027
   </p>
 
+
   <form
     class="rsvp-form"
     id="rsvpForm"
   >
+
 
     <div class="form-field">
 
@@ -689,11 +900,14 @@
 
     </div>
 
+
     <fieldset class="attendance">
+
 
       <legend>
         WILL YOU BE JOINING US?
       </legend>
+
 
       <label class="attendance__option">
 
@@ -710,6 +924,7 @@
 
       </label>
 
+
       <label class="attendance__option">
 
         <input
@@ -724,18 +939,22 @@
 
       </label>
 
+
     </fieldset>
+
 
     <div
       class="rsvp-form__guests"
       id="guestDetails"
     >
 
+
       <div class="form-field">
 
         <label for="guestCount">
           NUMBER OF GUESTS
         </label>
+
 
         <select
           id="guestCount"
@@ -770,6 +989,7 @@
 
       </div>
 
+
       <div class="form-field">
 
         <label for="companionNames">
@@ -785,7 +1005,9 @@
 
       </div>
 
+
     </div>
+
 
     <div class="form-field">
 
@@ -802,6 +1024,7 @@
 
     </div>
 
+
     <button
       class="rsvp-form__submit"
       type="submit"
@@ -809,15 +1032,19 @@
       SEND RSVP
     </button>
 
+
     <p
       class="rsvp-form__status"
       id="rsvpStatus"
       aria-live="polite"
     ></p>
 
+
   </form>
 
+
 </section>
+
 
 
 <!-- ======================================================
@@ -826,13 +1053,16 @@
 
 <section class="location section-light">
 
+
   <p class="section-label section-label--center">
     LOCATION
   </p>
 
+
   <span
     class="section-line section-line--center"
   ></span>
+
 
   <div class="location__map">
 
@@ -843,13 +1073,16 @@
 
   </div>
 
+
   <h3>
     Villa del Balbianello
   </h3>
 
+
   <p>
     Lake Como, Italy
   </p>
+
 
   <a
     class="location__link"
@@ -860,7 +1093,9 @@
     GET DIRECTIONS →
   </a>
 
+
 </section>
+
 
 
 <!-- ======================================================
@@ -868,6 +1103,7 @@
 ====================================================== -->
 
 <footer class="footer">
+
 
   <p class="footer__names">
 
@@ -881,9 +1117,11 @@
 
   </p>
 
+
   <p class="footer__date">
     24 · 05 · 2027
   </p>
+
 
   <div class="footer__brand">
 
@@ -895,12 +1133,15 @@
 
   </div>
 
+
 </footer>
 
 
 </main>
 
+
 <script src="script.js"></script>
+
 
 </body>
 
