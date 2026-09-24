@@ -2021,3 +2021,735 @@ button {
   }
 
 }
+/* =========================================================
+   SELMIO — LUXURY INVITATION INTRO
+   ========================================================= */
+
+.invitation-intro {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255,255,255,.75) 0%,
+      rgba(250,243,235,.92) 42%,
+      rgba(239,220,204,.96) 100%
+    );
+
+  transition:
+    opacity 1s ease,
+    visibility 1s ease;
+}
+
+
+/* ---------------------------------------------------------
+   MAIN CONTENT
+--------------------------------------------------------- */
+
+.invitation-intro__content {
+  position: relative;
+  z-index: 3;
+
+  width: min(760px, 90vw);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   TOP TEXT
+--------------------------------------------------------- */
+
+.invitation-intro__eyebrow {
+  margin: 0 0 48px;
+
+  color: #7a2635;
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+
+  letter-spacing: .38em;
+  text-transform: uppercase;
+}
+
+.invitation-intro__eyebrow::after {
+  content: "";
+
+  display: block;
+
+  width: 54px;
+  height: 1px;
+
+  margin: 20px auto 0;
+
+  background: #9d6670;
+}
+
+
+/* =========================================================
+   ENVELOPE
+   ========================================================= */
+
+.invitation-envelope {
+  position: relative;
+
+  width: min(570px, 78vw);
+  aspect-ratio: 1.58 / 1;
+
+  cursor: pointer;
+
+  filter: drop-shadow(0 28px 28px rgba(74, 42, 35, .18));
+
+  transform: translateZ(0);
+}
+
+
+/* ---------------------------------------------------------
+   ENVELOPE BACK
+--------------------------------------------------------- */
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  border: 1px solid rgba(122, 79, 66, .12);
+
+  background:
+    linear-gradient(
+      145deg,
+      #f3e5d6 0%,
+      #ead4c0 100%
+    );
+
+  border-radius: 3px;
+}
+
+
+/* ---------------------------------------------------------
+   CARD INSIDE ENVELOPE
+--------------------------------------------------------- */
+
+.invitation-card {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 8%;
+  top: -10%;
+
+  width: 84%;
+  height: 82%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(116, 71, 61, .22);
+
+  background:
+    linear-gradient(
+      135deg,
+      #fffaf4 0%,
+      #f9eee3 100%
+    );
+
+  box-shadow:
+    0 8px 18px rgba(72, 44, 36, .10);
+
+  transition:
+    transform 1.25s cubic-bezier(.22,.7,.25,1),
+    opacity .8s ease;
+}
+
+.invitation-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 9px;
+
+  border: 1px solid rgba(130, 73, 76, .25);
+
+  pointer-events: none;
+}
+
+.invitation-card h2 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+
+  color: #6f2633;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(34px, 5vw, 54px);
+  font-weight: 400;
+
+  letter-spacing: .02em;
+}
+
+.invitation-card__line {
+  position: relative;
+  z-index: 2;
+
+  width: 60px;
+  height: 1px;
+
+  margin: 17px 0;
+
+  background: #b77d83;
+}
+
+.invitation-card p {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+
+  color: #8a6460;
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 9px;
+
+  letter-spacing: .30em;
+}
+
+
+/* subtle botanical decoration on card */
+
+.invitation-card__flowers {
+  position: absolute;
+
+  top: -15px;
+  right: -10px;
+
+  width: 145px;
+  height: 145px;
+
+  opacity: .55;
+
+  background:
+    radial-gradient(circle at 70% 25%, #d6a4a1 0 5%, transparent 6%),
+    radial-gradient(circle at 82% 39%, #ead0c4 0 7%, transparent 8%),
+    radial-gradient(circle at 55% 18%, #8b8a6b 0 3%, transparent 4%);
+}
+
+
+/* ---------------------------------------------------------
+   TOP FLAP
+--------------------------------------------------------- */
+
+.envelope-flap {
+  position: absolute;
+
+  z-index: 3;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 55%;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    50% 100%
+  );
+
+  background:
+    linear-gradient(
+      160deg,
+      #ead5c2 0%,
+      #d9bda7 100%
+    );
+
+  transform-origin: top center;
+
+  transition:
+    transform 1s cubic-bezier(.3,.7,.2,1),
+    z-index .1s linear .45s;
+}
+
+
+/* ---------------------------------------------------------
+   FRONT PART OF ENVELOPE
+--------------------------------------------------------- */
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+
+  z-index: 5;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.envelope-front::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f0decd 0%,
+      #e5cbb7 100%
+    );
+
+  clip-path: polygon(
+    0 42%,
+    50% 74%,
+    100% 42%,
+    100% 100%,
+    0 100%
+  );
+}
+
+.envelope-front-left,
+.envelope-front-right {
+  position: absolute;
+  bottom: 0;
+
+  width: 51%;
+  height: 60%;
+
+  background: rgba(246, 230, 216, .65);
+}
+
+.envelope-front-left {
+  left: 0;
+
+  clip-path: polygon(
+    0 0,
+    100% 55%,
+    100% 100%,
+    0 100%
+  );
+}
+
+.envelope-front-right {
+  right: 0;
+
+  clip-path: polygon(
+    100% 0,
+    0 55%,
+    0 100%,
+    100% 100%
+  );
+}
+
+
+/* =========================================================
+   BURGUNDY RIBBON
+   ========================================================= */
+
+.envelope-ribbon {
+  position: absolute;
+
+  z-index: 7;
+
+  left: 0;
+  top: 61%;
+
+  width: 100%;
+  height: 38px;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+
+  transition:
+    opacity .5s ease,
+    transform .7s ease;
+}
+
+.envelope-ribbon::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      #842b3d 0%,
+      #651b2c 50%,
+      #7b2537 100%
+    );
+
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,.15),
+    inset 0 -2px 4px rgba(44,0,10,.18);
+}
+
+.ribbon-left,
+.ribbon-right {
+  position: absolute;
+
+  top: 23px;
+
+  width: 160px;
+  height: 35px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #8c3042,
+      #671b2d
+    );
+}
+
+.ribbon-left {
+  left: 50%;
+
+  transform:
+    translateX(-96%)
+    rotate(-28deg);
+
+  transform-origin: right center;
+
+  clip-path: polygon(
+    0 0,
+    100% 20%,
+    100% 80%,
+    0 100%,
+    10% 50%
+  );
+}
+
+.ribbon-right {
+  left: 50%;
+
+  transform:
+    translateX(-4%)
+    rotate(15deg);
+
+  transform-origin: left center;
+
+  clip-path: polygon(
+    0 20%,
+    100% 0,
+    90% 50%,
+    100% 100%,
+    0 80%
+  );
+}
+
+
+/* =========================================================
+   WAX SEAL
+   ========================================================= */
+
+.wax-seal {
+  position: absolute;
+
+  z-index: 10;
+
+  left: 50%;
+  top: 61%;
+
+  width: 92px;
+  height: 92px;
+
+  padding: 0;
+
+  transform: translate(-50%, -50%);
+
+  border: 0;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  color: #f4d9b5;
+
+  background:
+    radial-gradient(
+      circle at 36% 28%,
+      #a64256 0%,
+      #82263a 35%,
+      #64182a 70%,
+      #49101d 100%
+    );
+
+  box-shadow:
+    0 8px 14px rgba(65, 18, 28, .30),
+    inset 0 0 0 4px rgba(255,255,255,.07),
+    inset 0 0 0 8px rgba(75,12,25,.20);
+
+  transition:
+    transform .35s ease,
+    opacity .6s ease;
+}
+
+.wax-seal::before,
+.wax-seal::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+}
+
+.wax-seal::before {
+  inset: 8px;
+
+  border: 1px solid rgba(245, 213, 173, .42);
+}
+
+.wax-seal::after {
+  inset: -3px;
+
+  border: 2px solid rgba(91, 19, 34, .35);
+}
+
+.wax-seal:hover {
+  transform:
+    translate(-50%, -50%)
+    scale(1.06);
+}
+
+.wax-seal__inner {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wax-seal__letters {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.wax-seal__branch {
+  margin-top: -3px;
+
+  font-size: 18px;
+
+  opacity: .8;
+}
+
+
+/* =========================================================
+   SMALL FLOWERS AROUND SEAL
+   ========================================================= */
+
+.envelope-flowers {
+  position: absolute;
+
+  z-index: 8;
+
+  left: 36%;
+  top: 49%;
+
+  width: 135px;
+  height: 100px;
+
+  pointer-events: none;
+
+  transform: translate(-50%, -50%) rotate(-8deg);
+}
+
+.envelope-flowers::before {
+  content: "✦  ❀  ✦";
+
+  position: absolute;
+
+  color: #7c2939;
+
+  font-size: 28px;
+
+  letter-spacing: 10px;
+
+  text-shadow:
+    -25px 20px 0 #697057,
+    35px -12px 0 #d7b0a5;
+}
+
+
+/* =========================================================
+   TAP TO OPEN
+   ========================================================= */
+
+.tap-to-open {
+  margin-top: 55px;
+  padding: 0;
+
+  border: 0;
+  outline: 0;
+
+  cursor: pointer;
+
+  color: #8a4a55;
+
+  background: transparent;
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: .40em;
+
+  transition:
+    opacity .3s ease,
+    color .3s ease;
+}
+
+.tap-to-open span {
+  display: block;
+
+  width: 48px;
+  height: 1px;
+
+  margin: 18px auto 0;
+
+  background: #aa7079;
+
+  transition: width .35s ease;
+}
+
+.tap-to-open:hover {
+  color: #651b2c;
+}
+
+.tap-to-open:hover span {
+  width: 75px;
+}
+
+
+/* =========================================================
+   OPEN ANIMATION
+   ========================================================= */
+
+.invitation-intro.is-opening .envelope-flap {
+  z-index: 1;
+
+  transform: rotateX(180deg);
+}
+
+.invitation-intro.is-opening .wax-seal {
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    scale(.65);
+}
+
+.invitation-intro.is-opening .envelope-ribbon {
+  opacity: 0;
+
+  transform:
+    translateY(-50%)
+    scaleX(.7);
+}
+
+.invitation-intro.is-opening .envelope-flowers {
+  opacity: 0;
+
+  transition: opacity .5s ease;
+}
+
+.invitation-intro.is-opening .invitation-card {
+  transform: translateY(-38%);
+}
+
+.invitation-intro.is-leaving {
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .invitation-intro__content {
+    width: 94vw;
+  }
+
+  .invitation-intro__eyebrow {
+    margin-bottom: 42px;
+
+    font-size: 9px;
+
+    letter-spacing: .28em;
+  }
+
+  .invitation-envelope {
+    width: 86vw;
+  }
+
+  .invitation-card h2 {
+    font-size: 32px;
+  }
+
+  .wax-seal {
+    width: 72px;
+    height: 72px;
+  }
+
+  .wax-seal__letters {
+    font-size: 21px;
+  }
+
+  .envelope-ribbon {
+    height: 29px;
+  }
+
+  .tap-to-open {
+    margin-top: 48px;
+
+    font-size: 9px;
+  }
+
+}
+
+
+/* smaller phones */
+
+@media (max-width: 420px) {
+
+  .invitation-intro__eyebrow {
+    margin-bottom: 34px;
+  }
+
+  .invitation-envelope {
+    width: 91vw;
+  }
+
+  .tap-to-open {
+    margin-top: 42px;
+  }
+
+}
