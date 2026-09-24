@@ -1,1 +1,102 @@
-const target=new Date('2027-07-18T16:00:00');function tick(){const d=target-new Date();if(d<=0){count.textContent='TODAY IS THE DAY';return}const days=Math.floor(d/864e5),h=Math.floor(d/36e5)%24,m=Math.floor(d/6e4)%60;count.textContent=`${String(days).padStart(3,'0')} DAYS · ${String(h).padStart(2,'0')} HOURS · ${String(m).padStart(2,'0')} MIN`}tick();setInterval(tick,60000);
+/* =========================================================
+   SELMIO — Wedding Invitation
+   Amelia & Oliver
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* -------------------------
+     Smooth reveal
+  ------------------------- */
+
+  const revealItems = document.querySelectorAll(
+    ".hero__intro, .hero__title, .hero__date, .hero__composition, .hero__bottom, .invitation__inner"
+  );
+
+  revealItems.forEach((item, index) => {
+    item.style.opacity = "0";
+    item.style.transform = "translateY(25px)";
+
+    setTimeout(() => {
+      item.style.transition =
+        "opacity 1.2s ease, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)";
+
+      item.style.opacity = "1";
+      item.style.transform = "translateY(0)";
+    }, 180 + index * 160);
+  });
+
+
+  /* -------------------------
+     Invitation reveal
+  ------------------------- */
+
+  const invitation = document.querySelector(
+    ".invitation__inner"
+  );
+
+  if (invitation) {
+
+    invitation.style.opacity = "0";
+    invitation.style.transform = "translateY(35px)";
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            invitation.style.transition =
+              "opacity 1.2s ease, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)";
+
+            invitation.style.opacity = "1";
+            invitation.style.transform = "translateY(0)";
+
+            observer.unobserve(invitation);
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.2
+      }
+    );
+
+    observer.observe(invitation);
+  }
+
+
+  /* -------------------------
+     Subtle photo movement
+  ------------------------- */
+
+  const photo = document.querySelector(
+    ".hero__photo img"
+  );
+
+  window.addEventListener(
+    "scroll",
+    () => {
+
+      if (!photo) return;
+
+      const scrollPosition =
+        window.scrollY;
+
+      const movement =
+        Math.min(
+          scrollPosition * 0.018,
+          10
+        );
+
+      photo.style.transform =
+        `scale(1.035) translateY(${movement}px)`;
+    },
+    {
+      passive: true
+    }
+  );
+
+});
