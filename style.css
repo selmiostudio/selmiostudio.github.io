@@ -1,24 +1,24 @@
 /* =========================================================
    SELMIO — WEDDING INVITATION
-   FINAL STYLES
+   CLEAN FINAL STYLE
 ========================================================= */
 
 :root {
-  --wine: #6d2634;
-  --wine-dark: #501a25;
-  --wine-soft: #8c4a54;
+  --wine: #702634;
+  --wine-dark: #521a26;
+  --wine-deep: #43131d;
 
-  --cream: #f3e9df;
-  --cream-light: #faf6f0;
+  --cream: #f2e7dc;
+  --cream-light: #faf5ef;
   --paper: #fffaf5;
 
-  --rose: #c89a98;
-  --blush: #e1c2bc;
-  --beige: #d8c8ba;
-  --olive: #676957;
+  --rose: #c99a98;
+  --blush: #e3c6bd;
+  --beige: #d7c7b8;
+  --olive: #696b58;
 
-  --text: #55443f;
-  --text-light: #806f68;
+  --text: #54433e;
+  --text-light: #817069;
 
   --serif: "Cormorant Garamond", Georgia, serif;
   --script: "Allura", cursive;
@@ -42,10 +42,12 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
+
   background: var(--cream-light);
   color: var(--text);
+
   font-family: var(--serif);
-  overflow-x: hidden;
 }
 
 body.locked {
@@ -90,9 +92,11 @@ button {
 
 .section-label {
   color: var(--wine-dark);
+
   font-family: var(--serif);
-  font-size: clamp(25px, 3vw, 38px);
+  font-size: clamp(28px, 3.2vw, 43px);
   font-weight: 400;
+
   letter-spacing: 0.13em;
   line-height: 1.1;
 }
@@ -102,38 +106,45 @@ button {
 }
 
 .section-label--light {
-  color: #fff5ef;
+  color: #fff7f1;
   text-align: center;
 }
 
 .section-line {
   display: block;
-  width: 42px;
+
+  width: 44px;
   height: 1px;
-  margin-top: 15px;
-  background: rgba(109, 38, 52, 0.55);
+
+  margin-top: 17px;
+
+  background: rgba(112, 38, 52, 0.5);
 }
 
 .section-line--center {
-  margin: 15px auto 0;
+  margin: 17px auto 0;
 }
 
 .section-line--light {
-  margin: 15px auto 0;
-  background: rgba(255, 255, 255, 0.6);
+  margin: 17px auto 0;
+
+  background: rgba(255, 255, 255, 0.58);
 }
 
 
 /* =========================================================
-   OPENING SCREEN
+   INTRO
 ========================================================= */
 
-.opening {
+.invitation-intro {
   position: fixed;
   inset: 0;
-  z-index: 9999;
 
-  min-height: 100svh;
+  z-index: 99999;
+
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
 
   display: flex;
   align-items: center;
@@ -143,10 +154,10 @@ button {
 
   background:
     radial-gradient(
-      circle at 50% 38%,
-      #fffaf6 0%,
-      #f4e9df 48%,
-      #e7d4c5 100%
+      circle at 50% 42%,
+      #fffaf5 0%,
+      #f7ede4 45%,
+      #ead9ca 100%
     );
 
   transition:
@@ -154,17 +165,18 @@ button {
     visibility 1s ease;
 }
 
-.opening::after {
+.invitation-intro::before {
   content: "";
+
   position: absolute;
   inset: 0;
 
-  opacity: 0.18;
+  opacity: 0.14;
 
   background-image:
     radial-gradient(
-      rgba(87, 51, 43, 0.2) 0.55px,
-      transparent 0.55px
+      rgba(94, 62, 52, 0.22) 0.5px,
+      transparent 0.5px
     );
 
   background-size: 7px 7px;
@@ -172,17 +184,11 @@ button {
   pointer-events: none;
 }
 
-.opening.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.opening__content {
+.invitation-intro__content {
   position: relative;
-  z-index: 5;
+  z-index: 3;
 
-  width: min(530px, 92vw);
+  width: min(720px, 92vw);
 
   display: flex;
   flex-direction: column;
@@ -191,160 +197,206 @@ button {
   text-align: center;
 }
 
-.opening__small {
+.invitation-intro__eyebrow {
   margin-bottom: 42px;
 
   color: var(--wine);
 
   font-family: var(--sans);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 500;
+
   letter-spacing: 0.38em;
+  text-transform: uppercase;
 }
 
-.opening__flowers {
-  position: absolute;
-  z-index: 2;
+.invitation-intro__eyebrow::after {
+  content: "";
 
-  pointer-events: none;
-}
+  display: block;
 
-.opening__flowers--left {
-  width: min(430px, 43vw);
+  width: 45px;
+  height: 1px;
 
-  left: -90px;
-  bottom: -35px;
-}
+  margin: 18px auto 0;
 
-.opening__flowers--right {
-  width: min(400px, 40vw);
-
-  right: -75px;
-  top: -35px;
+  background: rgba(112, 38, 52, 0.5);
 }
 
 
 /* =========================================================
-   ENVELOPE
+   ELEGANT ENVELOPE
 ========================================================= */
 
-.envelope {
+.invitation-envelope {
   position: relative;
 
-  width: min(430px, 84vw);
-  aspect-ratio: 1.55;
+  width: min(520px, 82vw);
+  aspect-ratio: 1.58 / 1;
 
   cursor: pointer;
-  perspective: 1400px;
+
+  perspective: 1300px;
 
   filter:
     drop-shadow(
-      0 30px 35px
-      rgba(70, 39, 34, 0.22)
+      0 28px 30px
+      rgba(74, 45, 38, 0.17)
     );
 }
 
-.envelope__back {
+
+/* BACK */
+
+.envelope-back {
   position: absolute;
   inset: 0;
 
-  border-radius: 3px;
+  z-index: 1;
+
+  border: 1px solid rgba(110, 77, 64, 0.12);
+  border-radius: 2px;
 
   background:
     linear-gradient(
       145deg,
-      #f0dfd1,
-      #ddc1ad
+      #f4e7da 0%,
+      #e7d0bd 100%
     );
 }
 
-.envelope__letter {
+
+/* INVITATION CARD */
+
+.invitation-card {
   position: absolute;
 
   z-index: 2;
 
-  left: 7%;
-  right: 7%;
-  bottom: 7%;
+  left: 8%;
+  top: 5%;
 
-  height: 88%;
+  width: 84%;
+  height: 82%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  color: var(--wine-dark);
-
-  background: #fffaf4;
-
-  border:
-    1px solid
-    rgba(118, 80, 68, 0.15);
-
-  box-shadow:
-    0 7px 18px
-    rgba(75, 43, 36, 0.11);
-
-  transform: translateY(8%);
-
-  transition:
-    transform 1.1s
-    cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.envelope__letter span {
-  font-size: clamp(32px, 7vw, 49px);
-  line-height: 0.8;
-}
-
-.envelope__letter em {
-  margin: 9px 0;
-
-  font-size: 29px;
-  font-weight: 300;
-}
-
-.envelope__letter small {
-  margin-top: 21px;
-
-  font-family: var(--sans);
-  font-size: 7px;
-  letter-spacing: 0.3em;
-}
-
-.envelope__front {
-  position: absolute;
-  inset: 0;
-
-  z-index: 4;
-
   overflow: hidden;
-
-  border-radius: 3px;
 
   background:
     linear-gradient(
-      32deg,
-      #ead5c4 49.7%,
-      transparent 50%
-    )
-    left bottom / 50.5% 100%
-    no-repeat,
+      135deg,
+      #fffdf9,
+      #fbf3ea
+    );
 
-    linear-gradient(
-      -32deg,
-      #e3cab7 49.7%,
-      transparent 50%
-    )
-    right bottom / 50.5% 100%
-    no-repeat;
+  border:
+    1px solid
+    rgba(112, 71, 61, 0.16);
+
+  box-shadow:
+    0 8px 18px
+    rgba(70, 43, 36, 0.08);
+
+  transition:
+    transform 1.15s
+    cubic-bezier(0.22, 0.7, 0.25, 1);
 }
 
-.envelope__flap {
+.invitation-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 9px;
+
+  border:
+    1px solid
+    rgba(112, 38, 52, 0.18);
+
+  pointer-events: none;
+}
+
+.invitation-card h2 {
+  position: relative;
+  z-index: 2;
+
+  color: var(--wine-dark);
+
+  font-family: var(--serif);
+  font-size: clamp(35px, 5vw, 52px);
+  font-weight: 400;
+
+  letter-spacing: 0.02em;
+}
+
+.invitation-card__line {
+  position: relative;
+  z-index: 2;
+
+  width: 54px;
+  height: 1px;
+
+  margin: 15px 0;
+
+  background: var(--rose);
+}
+
+.invitation-card p {
+  position: relative;
+  z-index: 2;
+
+  color: #8a6c65;
+
+  font-family: var(--sans);
+  font-size: 8px;
+
+  letter-spacing: 0.28em;
+}
+
+
+/* subtle floral detail */
+
+.invitation-card__flowers {
   position: absolute;
 
-  z-index: 6;
+  top: -35px;
+  right: -35px;
+
+  width: 140px;
+  height: 140px;
+
+  opacity: 0.28;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 40% 50%,
+      var(--blush) 0 8%,
+      transparent 9%
+    ),
+    radial-gradient(
+      circle at 63% 35%,
+      var(--rose) 0 6%,
+      transparent 7%
+    ),
+    radial-gradient(
+      circle at 52% 68%,
+      var(--olive) 0 4%,
+      transparent 5%
+    );
+}
+
+
+/* TOP FLAP */
+
+.envelope-flap {
+  position: absolute;
+
+  z-index: 4;
 
   top: 0;
   left: 0;
@@ -352,132 +404,259 @@ button {
   width: 100%;
   height: 58%;
 
-  transform-origin: top center;
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      50% 100%
+    );
 
   background:
     linear-gradient(
-      155deg,
-      transparent 49.5%,
-      #d7baa5 50%
-    )
-    left top / 50.2% 100%
-    no-repeat,
+      160deg,
+      #efddcd 0%,
+      #dcbfa8 100%
+    );
 
-    linear-gradient(
-      205deg,
-      transparent 49.5%,
-      #d7baa5 50%
-    )
-    right top / 50.2% 100%
-    no-repeat;
+  transform-origin: top center;
 
   transition:
-    transform 0.9s
-    cubic-bezier(0.7, 0, 0.2, 1),
+    transform 0.95s
+      cubic-bezier(0.3, 0.7, 0.2, 1),
     z-index 0s 0.45s;
 }
 
-.envelope__seal {
+
+/* FRONT */
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+
+  z-index: 5;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.envelope-front::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f1dfcf,
+      #e4c9b5
+    );
+
+  clip-path:
+    polygon(
+      0 42%,
+      50% 73%,
+      100% 42%,
+      100% 100%,
+      0 100%
+    );
+}
+
+.envelope-front-left,
+.envelope-front-right {
+  position: absolute;
+  bottom: 0;
+
+  width: 51%;
+  height: 60%;
+
+  background:
+    rgba(248, 234, 222, 0.55);
+}
+
+.envelope-front-left {
+  left: 0;
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 55%,
+      100% 100%,
+      0 100%
+    );
+}
+
+.envelope-front-right {
+  right: 0;
+
+  clip-path:
+    polygon(
+      100% 0,
+      0 55%,
+      0 100%,
+      100% 100%
+    );
+}
+
+
+/* remove old ribbon */
+
+.envelope-ribbon,
+.ribbon-left,
+.ribbon-right,
+.envelope-flowers {
+  display: none !important;
+}
+
+
+/* WAX SEAL */
+
+.wax-seal {
   position: absolute;
 
-  z-index: 8;
+  z-index: 10;
 
-  top: 45%;
   left: 50%;
+  top: 57%;
 
-  width: 72px;
-  height: 72px;
+  width: 76px;
+  height: 76px;
 
   display: grid;
   place-items: center;
 
-  transform: translate(-50%, -50%);
+  padding: 0;
 
+  transform:
+    translate(-50%, -50%);
+
+  border: 0;
   border-radius: 50%;
 
-  color: #efd9d0;
+  color: #eed9c3;
 
   background:
     radial-gradient(
-      circle at 35% 30%,
-      #963a4b,
-      #6c2231 58%,
-      #50141f 100%
+      circle at 35% 28%,
+      #9d4352 0%,
+      #792738 38%,
+      #5b1928 75%,
+      #46111c 100%
     );
 
-  border:
-    2px solid
-    rgba(255, 220, 210, 0.22);
-
   box-shadow:
-    0 7px 17px
-    rgba(65, 18, 27, 0.3);
+    0 8px 15px
+      rgba(64, 17, 27, 0.27),
+    inset 0 0 0 3px
+      rgba(255, 255, 255, 0.06);
 
   transition:
-    opacity 0.35s ease,
-    transform 0.35s ease;
+    transform 0.35s ease,
+    opacity 0.5s ease;
 }
 
-.envelope__seal::before {
+.wax-seal::before {
   content: "";
 
   position: absolute;
-  inset: 6px;
+  inset: 7px;
 
   border:
     1px solid
-    rgba(242, 211, 203, 0.38);
+    rgba(242, 215, 188, 0.36);
 
   border-radius: 50%;
 }
 
-.envelope__seal span {
-  font-size: 18px;
+.wax-seal:hover {
+  transform:
+    translate(-50%, -50%)
+    scale(1.05);
+}
+
+.wax-seal__inner {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wax-seal__letters {
+  font-family: var(--serif);
+  font-size: 23px;
   font-style: italic;
 }
 
-.envelope.is-open .envelope__flap {
+.wax-seal__branch {
+  display: none;
+}
+
+
+/* TAP */
+
+.tap-to-open {
+  margin-top: 46px;
+
+  padding: 0;
+
+  border: 0;
+
+  color: #89515a;
+  background: transparent;
+
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 500;
+
+  letter-spacing: 0.38em;
+}
+
+.tap-to-open span {
+  display: block;
+
+  width: 42px;
+  height: 1px;
+
+  margin: 16px auto 0;
+
+  background: rgba(112, 38, 52, 0.45);
+
+  transition: width 0.3s ease;
+}
+
+.tap-to-open:hover span {
+  width: 65px;
+}
+
+
+/* OPENING ANIMATION */
+
+.invitation-intro.is-opening .envelope-flap {
   z-index: 1;
 
   transform: rotateX(180deg);
 }
 
-.envelope.is-open .envelope__seal {
+.invitation-intro.is-opening .wax-seal {
   opacity: 0;
 
   transform:
     translate(-50%, -50%)
-    scale(0.75);
+    scale(0.65);
 }
 
-.envelope.is-open .envelope__letter {
-  transform: translateY(-47%);
+.invitation-intro.is-opening .invitation-card {
+  transform: translateY(-48%);
 }
 
-.opening__tap {
-  margin-top: 43px;
+.invitation-intro.is-leaving {
+  opacity: 0;
+  visibility: hidden;
 
-  color: var(--wine);
-
-  font-family: var(--sans);
-  font-size: 8px;
-  font-weight: 500;
-  letter-spacing: 0.4em;
-
-  animation:
-    tapPulse 2s
-    ease-in-out infinite;
-}
-
-@keyframes tapPulse {
-  0%,
-  100% {
-    opacity: 0.42;
-  }
-
-  50% {
-    opacity: 1;
-  }
+  pointer-events: none;
 }
 
 
@@ -488,6 +667,8 @@ button {
 .hero {
   position: relative;
 
+  width: 100%;
+  min-height: 100vh;
   min-height: 100svh;
 
   display: flex;
@@ -496,6 +677,7 @@ button {
   overflow: hidden;
 
   color: #fff;
+
   background: var(--wine-dark);
 }
 
@@ -517,9 +699,9 @@ button {
   background:
     linear-gradient(
       to bottom,
-      rgba(30, 15, 16, 0.16),
-      rgba(30, 15, 16, 0.03) 42%,
-      rgba(35, 13, 17, 0.58) 100%
+      rgba(25, 12, 14, 0.2),
+      rgba(25, 12, 14, 0.03) 40%,
+      rgba(35, 13, 17, 0.62) 100%
     );
 }
 
@@ -528,10 +710,12 @@ button {
 
   z-index: 3;
 
-  top: 34px;
+  top: 32px;
   left: 5%;
 
-  font-size: clamp(24px, 3vw, 38px);
+  font-family: var(--serif);
+  font-size: clamp(23px, 2.5vw, 34px);
+
   letter-spacing: 0.08em;
 }
 
@@ -544,9 +728,12 @@ button {
   right: 5%;
 
   display: flex;
-  gap: 24px;
+  gap: 25px;
 
-  font-size: 12px;
+  font-family: var(--sans);
+  font-size: 10px;
+
+  letter-spacing: 0.04em;
 }
 
 .hero__nav a {
@@ -559,9 +746,10 @@ button {
 
 .hero__content {
   position: relative;
+
   z-index: 3;
 
-  width: min(850px, 90%);
+  width: min(1100px, 90%);
 
   margin: 0 auto;
 
@@ -573,23 +761,24 @@ button {
 
   font-size:
     clamp(
-      80px,
-      12vw,
-      160px
+      78px,
+      11vw,
+      155px
     );
 
-  line-height: 0.64;
+  line-height: 0.72;
 
   text-shadow:
-    0 4px 25px
-    rgba(25, 10, 12, 0.16);
+    0 5px 25px
+    rgba(25, 10, 12, 0.17);
 }
 
 .hero__subtitle {
-  margin-top: 34px;
+  margin-top: 35px;
 
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 10px;
+
   letter-spacing: 0.42em;
 }
 
@@ -598,7 +787,7 @@ button {
 
   margin-top: 18px;
 
-  font-size: 16px;
+  font-size: 17px;
   font-style: italic;
 }
 
@@ -610,15 +799,15 @@ button {
   right: 5%;
   bottom: 7%;
 
-  width: 43px;
-  height: 43px;
+  width: 44px;
+  height: 44px;
 
   display: grid;
   place-items: center;
 
   border:
     1px solid
-    rgba(255,255,255,0.6);
+    rgba(255, 255, 255, 0.6);
 
   border-radius: 50%;
 }
@@ -629,23 +818,28 @@ button {
 ========================================================= */
 
 .story {
+  width: 100%;
+
   padding:
-    clamp(80px, 10vw, 145px)
+    clamp(85px, 10vw, 145px)
     7%;
 }
 
 .story__inner {
   position: relative;
 
-  max-width: 1080px;
-  margin: auto;
+  width: 100%;
+  max-width: 1180px;
+
+  margin: 0 auto;
 
   display: grid;
 
   grid-template-columns:
-    0.9fr 1.1fr;
+    minmax(0, 0.9fr)
+    minmax(0, 1.1fr);
 
-  gap: 80px;
+  gap: clamp(50px, 7vw, 90px);
 
   align-items: center;
 }
@@ -655,28 +849,28 @@ button {
   z-index: 2;
 
   font-size: 18px;
-  line-height: 1.55;
+  line-height: 1.65;
 }
 
 .story__text p:not(.section-label) {
-  margin-top: 18px;
+  margin-top: 22px;
 }
 
 .story__branch {
   position: absolute;
 
-  width: 150px;
+  width: 135px;
 
-  top: 4%;
-  right: 0;
+  top: 0;
+  right: -20px;
 
-  opacity: 0.62;
+  opacity: 0.55;
 }
 
 .story__photos {
   position: relative;
 
-  min-height: 430px;
+  min-height: 470px;
 }
 
 .polaroid {
@@ -687,24 +881,24 @@ button {
   padding:
     10px
     10px
-    35px;
+    34px;
 
-  background: #f7f2eb;
+  background: #f8f3ed;
 
   box-shadow:
-    0 15px 30px
-    rgba(68, 48, 40, 0.17);
+    0 15px 32px
+    rgba(68, 48, 40, 0.15);
 }
 
 .polaroid img {
-  aspect-ratio: 1 / 1.15;
+  aspect-ratio: 1 / 1.16;
 
   object-fit: cover;
 }
 
 .polaroid--one {
   left: 0;
-  top: 40px;
+  top: 35px;
 
   transform: rotate(-5deg);
 }
@@ -713,7 +907,7 @@ button {
   right: 0;
   top: 85px;
 
-  transform: rotate(7deg);
+  transform: rotate(6deg);
 }
 
 .story__note {
@@ -721,15 +915,15 @@ button {
 
   z-index: 5;
 
-  left: 42%;
+  left: 41%;
   bottom: 5px;
 
   color: var(--rose);
 
   font-family: var(--script);
-  font-size: 31px;
+  font-size: 35px;
 
-  transform: rotate(-7deg);
+  transform: rotate(-6deg);
 }
 
 
@@ -738,14 +932,17 @@ button {
 ========================================================= */
 
 .gallery {
+  width: 100%;
+
   padding:
     90px
     6%
-    80px;
+    85px;
 }
 
 .gallery__grid {
-  max-width: 1080px;
+  width: 100%;
+  max-width: 1180px;
 
   margin:
     48px
@@ -755,9 +952,9 @@ button {
   display: grid;
 
   grid-template-columns:
-    repeat(3, 1fr);
+    repeat(3, minmax(0, 1fr));
 
-  gap: 12px;
+  gap: 14px;
 }
 
 .gallery__grid figure {
@@ -765,12 +962,12 @@ button {
 }
 
 .gallery__grid img {
-  height: 390px;
+  width: 100%;
+  height: 430px;
 
   object-fit: cover;
 
-  transition:
-    transform 0.8s ease;
+  transition: transform 0.8s ease;
 }
 
 .gallery__grid figure:hover img {
@@ -789,9 +986,8 @@ button {
 .gallery__controls button {
   border: 0;
 
-  background: transparent;
-
   color: var(--text);
+  background: transparent;
 
   font-size: 20px;
 }
@@ -808,66 +1004,84 @@ button {
 .save-date {
   position: relative;
 
+  width: 100%;
+
+  overflow: hidden;
+
   background: var(--cream);
 
   text-align: center;
 }
 
+.save-date__envelope {
+  width: 100%;
+  overflow: hidden;
+}
+
 .save-date__envelope img {
-  height: 610px;
+  width: 100%;
+  height: min(700px, 78vh);
 
   object-fit: cover;
+  object-position: center;
 }
 
 .save-date__text {
   padding:
-    100px
+    95px
     20px
     80px;
 }
 
 .save-date__text h2 {
-  margin-top: 40px;
+  margin-top: 36px;
 
   color: var(--text);
 
   font-size:
     clamp(
-      40px,
+      42px,
       6vw,
-      66px
+      67px
     );
 
   font-weight: 400;
 }
 
 .save-date__text > p:last-child {
-  margin-top: 14px;
+  margin-top: 15px;
 
   font-family: var(--sans);
-  font-size: 10px;
-  letter-spacing: 0.35em;
+  font-size: 9px;
+
+  letter-spacing: 0.34em;
+}
+
+.save-date__lake {
+  width: 100%;
+  overflow: hidden;
 }
 
 .save-date__lake img {
-  height: min(720px, 80vh);
+  width: 100%;
+  height: min(760px, 82vh);
 
   object-fit: cover;
 }
 
 .save-date blockquote {
-  max-width: 700px;
+  max-width: 730px;
 
-  margin: auto;
+  margin: 0 auto;
 
   padding:
     55px
-    20px
+    25px
     70px;
 
-  font-size: 21px;
+  font-size: 22px;
   font-style: italic;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 
@@ -878,8 +1092,10 @@ button {
 .countdown {
   position: relative;
 
+  width: 100%;
+
   padding:
-    76px
+    82px
     20px;
 
   overflow: hidden;
@@ -889,8 +1105,8 @@ button {
   background:
     linear-gradient(
       135deg,
-      #4f1722,
-      #762b39
+      #501722,
+      #772b3a
     );
 
   text-align: center;
@@ -900,25 +1116,23 @@ button {
   position: absolute;
   inset: 0;
 
-  opacity: 0.2;
+  opacity: 0.18;
 
   background:
     radial-gradient(
-      circle at 13% 45%,
-      #e4a7ad 0 9%,
-      transparent 10%
+      circle at 12% 42%,
+      #e5a8ae 0 8%,
+      transparent 9%
     ),
-
     radial-gradient(
-      circle at 85% 40%,
-      #e5b2b6 0 13%,
-      transparent 14%
+      circle at 86% 38%,
+      #e5b1b6 0 12%,
+      transparent 13%
     ),
-
     radial-gradient(
-      circle at 50% 110%,
-      #d8949d 0 20%,
-      transparent 21%
+      circle at 50% 115%,
+      #d9949d 0 19%,
+      transparent 20%
     );
 }
 
@@ -928,17 +1142,18 @@ button {
 }
 
 .countdown__numbers {
-  max-width: 750px;
+  width: 100%;
+  max-width: 760px;
 
   margin:
-    43px
+    45px
     auto
     0;
 
   display: grid;
 
   grid-template-columns:
-    repeat(4, 1fr);
+    repeat(4, minmax(0, 1fr));
 }
 
 .countdown__numbers div {
@@ -946,7 +1161,7 @@ button {
 
   border-right:
     1px solid
-    rgba(255,255,255,0.22);
+    rgba(255, 255, 255, 0.23);
 }
 
 .countdown__numbers div:last-child {
@@ -958,7 +1173,7 @@ button {
 
   font-size:
     clamp(
-      38px,
+      39px,
       6vw,
       66px
     );
@@ -968,8 +1183,9 @@ button {
 
 .countdown__numbers span {
   font-family: var(--sans);
-  font-size: 8px;
-  letter-spacing: 0.3em;
+  font-size: 7px;
+
+  letter-spacing: 0.28em;
 }
 
 
@@ -978,27 +1194,30 @@ button {
 ========================================================= */
 
 .details {
+  width: 100%;
+
   padding:
-    90px
+    95px
     6%;
 }
 
 .details__grid {
-  max-width: 900px;
+  width: 100%;
+  max-width: 950px;
 
   margin:
-    55px
+    58px
     auto
     0;
 
   display: grid;
 
   grid-template-columns:
-    repeat(3, 1fr);
+    repeat(3, minmax(0, 1fr));
 }
 
 .details__grid article {
-  min-height: 170px;
+  min-height: 180px;
 
   padding:
     20px
@@ -1008,7 +1227,7 @@ button {
 
   border-right:
     1px solid
-    rgba(91, 68, 61, 0.18);
+    rgba(91, 68, 61, 0.17);
 }
 
 .details__grid article:last-child {
@@ -1018,25 +1237,26 @@ button {
 .details__icon {
   display: block;
 
-  margin-bottom: 16px;
+  margin-bottom: 17px;
 
   color: var(--rose);
 
-  font-size: 30px;
+  font-size: 29px;
 }
 
 .details__grid small {
   display: block;
 
-  margin-bottom: 12px;
+  margin-bottom: 13px;
 
   font-family: var(--sans);
   font-size: 8px;
+
   letter-spacing: 0.25em;
 }
 
 .details__grid p {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.45;
 }
 
@@ -1046,13 +1266,17 @@ button {
 ========================================================= */
 
 .dress-code {
+  position: relative;
+
+  width: 100%;
+
   padding:
     90px
     20px;
 
-  text-align: center;
-
   overflow: hidden;
+
+  text-align: center;
 }
 
 .dress-code__branch {
@@ -1063,13 +1287,13 @@ button {
   right: 5%;
   top: 20px;
 
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
 .dress-code__subtitle {
   margin-top: 35px;
 
-  font-size: 18px;
+  font-size: 19px;
 }
 
 .dress-code__colors {
@@ -1083,8 +1307,8 @@ button {
 }
 
 .color {
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
 
   border-radius: 50%;
 }
@@ -1110,7 +1334,7 @@ button {
 }
 
 .dress-code__note {
-  margin-top: 24px;
+  margin-top: 25px;
 
   font-size: 14px;
 }
@@ -1121,30 +1345,33 @@ button {
 ========================================================= */
 
 .day {
-  max-width: 1150px;
+  width: 100%;
+  max-width: 1180px;
 
-  margin: auto;
+  margin: 0 auto;
 
   display: grid;
 
   grid-template-columns:
-    0.85fr 1.15fr;
+    minmax(0, 0.85fr)
+    minmax(0, 1.15fr);
 
-  gap: 65px;
+  gap: 70px;
 
   padding:
-    100px
+    105px
     6%;
 }
 
 .day__photos {
   display: grid;
 
-  gap: 12px;
+  gap: 13px;
 }
 
 .day__photos img {
-  height: 330px;
+  width: 100%;
+  height: 340px;
 
   object-fit: cover;
 }
@@ -1155,7 +1382,7 @@ button {
   display: grid;
 
   grid-template-columns:
-    75px 1fr;
+    75px minmax(0, 1fr);
 
   gap: 25px;
 
@@ -1167,7 +1394,7 @@ button {
 
   border-left:
     1px solid
-    rgba(108,38,50,0.28);
+    rgba(108, 38, 50, 0.28);
 }
 
 .day__schedule article::before {
@@ -1213,6 +1440,7 @@ button {
 .celebration {
   position: relative;
 
+  width: 100%;
   min-height: 680px;
 
   overflow: hidden;
@@ -1234,8 +1462,8 @@ button {
 
   background:
     linear-gradient(
-      rgba(48,25,22,0.10),
-      rgba(48,25,22,0.35)
+      rgba(48, 25, 22, 0.08),
+      rgba(48, 25, 22, 0.38)
     );
 }
 
@@ -1256,14 +1484,15 @@ button {
   display: block;
 
   font-family: var(--script);
-  font-size: 56px;
+  font-size: 58px;
 }
 
 .celebration__text strong {
   display: block;
 
-  font-size: 46px;
+  font-size: 47px;
   font-weight: 400;
+
   letter-spacing: 0.08em;
 }
 
@@ -1274,6 +1503,8 @@ button {
 
 .rsvp {
   position: relative;
+
+  width: 100%;
 
   padding:
     105px
@@ -1293,7 +1524,7 @@ button {
   right: 2%;
   top: 28px;
 
-  opacity: 0.5;
+  opacity: 0.48;
 }
 
 .rsvp__intro {
@@ -1312,10 +1543,10 @@ button {
 }
 
 
-/* FORM */
+/* RSVP FORM */
 
 .rsvp-form {
-  width: min(580px, 100%);
+  width: min(590px, 100%);
 
   margin:
     48px
@@ -1327,11 +1558,11 @@ button {
     50px;
 
   background:
-    rgba(255,255,255,0.42);
+    rgba(255, 255, 255, 0.42);
 
   border:
     1px solid
-    rgba(109,38,52,0.13);
+    rgba(109, 38, 52, 0.13);
 
   box-shadow:
     0 22px 55px
@@ -1355,6 +1586,7 @@ button {
   font-family: var(--sans);
   font-size: 8px;
   font-weight: 500;
+
   letter-spacing: 0.22em;
 }
 
@@ -1372,9 +1604,10 @@ button {
   background: transparent;
 
   border: 0;
+
   border-bottom:
     1px solid
-    rgba(84,68,63,0.3);
+    rgba(84, 68, 63, 0.3);
 
   border-radius: 0;
 
@@ -1388,9 +1621,9 @@ button {
 }
 
 .form-field textarea {
-  resize: vertical;
-
   min-height: 75px;
+
+  resize: vertical;
 }
 
 .form-field input:focus,
@@ -1402,16 +1635,7 @@ button {
 .form-field input::placeholder,
 .form-field textarea::placeholder {
   color: #a99a93;
-
-  opacity: 1;
 }
-
-.form-field select {
-  cursor: pointer;
-}
-
-
-/* ATTENDANCE */
 
 .attendance {
   margin:
@@ -1453,8 +1677,6 @@ button {
   border-radius: 50%;
 
   background: transparent;
-
-  cursor: pointer;
 }
 
 .attendance__option input:checked {
@@ -1462,12 +1684,8 @@ button {
     5px solid
     var(--wine);
 
-  background:
-    var(--cream-light);
+  background: var(--cream-light);
 }
-
-
-/* GUEST DETAILS */
 
 .rsvp-form__guests {
   max-height: 0;
@@ -1476,8 +1694,7 @@ button {
 
   opacity: 0;
 
-  transform:
-    translateY(-10px);
+  transform: translateY(-10px);
 
   transition:
     max-height 0.6s ease,
@@ -1490,12 +1707,8 @@ button {
 
   opacity: 1;
 
-  transform:
-    translateY(0);
+  transform: translateY(0);
 }
-
-
-/* SUBMIT */
 
 .rsvp-form__submit {
   width: 100%;
@@ -1517,6 +1730,7 @@ button {
   font-family: var(--sans);
   font-size: 9px;
   font-weight: 500;
+
   letter-spacing: 0.2em;
 
   transition:
@@ -1530,8 +1744,7 @@ button {
 
   background: transparent;
 
-  transform:
-    translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .rsvp-form__status {
@@ -1553,8 +1766,10 @@ button {
 ========================================================= */
 
 .location {
+  width: 100%;
+
   padding:
-    80px
+    85px
     6%
     110px;
 
@@ -1562,7 +1777,8 @@ button {
 }
 
 .location__map {
-  max-width: 900px;
+  width: 100%;
+  max-width: 950px;
 
   margin:
     45px
@@ -1571,22 +1787,23 @@ button {
 
   overflow: hidden;
 
-  border-radius: 10px;
+  border-radius: 6px;
 }
 
 .location__map img {
-  height: 340px;
+  width: 100%;
+  height: 360px;
 
   object-fit: cover;
 }
 
 .location h3 {
-  font-size: 25px;
+  font-size: 26px;
   font-weight: 400;
 }
 
 .location > p {
-  margin-top: 6px;
+  margin-top: 7px;
 
   font-size: 15px;
 }
@@ -1607,6 +1824,7 @@ button {
   font-family: var(--sans);
   font-size: 9px;
   font-weight: 500;
+
   letter-spacing: 0.1em;
 }
 
@@ -1616,6 +1834,8 @@ button {
 ========================================================= */
 
 .footer {
+  width: 100%;
+
   padding:
     80px
     20px
@@ -1623,8 +1843,7 @@ button {
 
   color: #f8eee8;
 
-  background:
-    var(--wine-dark);
+  background: var(--wine-dark);
 
   text-align: center;
 }
@@ -1634,7 +1853,7 @@ button {
     clamp(
       48px,
       8vw,
-      78px
+      80px
     );
 }
 
@@ -1647,6 +1866,7 @@ button {
 
   font-family: var(--sans);
   font-size: 9px;
+
   letter-spacing: 0.35em;
 }
 
@@ -1655,6 +1875,7 @@ button {
 
   font-family: var(--sans);
   font-size: 11px;
+
   letter-spacing: 0.4em;
 
   opacity: 0.72;
@@ -1666,7 +1887,29 @@ button {
   margin-top: 8px;
 
   font-size: 7px;
+
   letter-spacing: 0.22em;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .story__inner {
+    gap: 45px;
+  }
+
+  .gallery__grid img {
+    height: 360px;
+  }
+
+  .day {
+    gap: 45px;
+  }
+
 }
 
 
@@ -1676,72 +1919,91 @@ button {
 
 @media (max-width: 700px) {
 
-  .opening__small {
-    margin-bottom: 30px;
-
-    font-size: 7px;
+  .section-label {
+    font-size: 29px;
   }
 
-  .opening__flowers--left {
-    width: 285px;
 
-    left: -155px;
+  /* INTRO */
+
+  .invitation-intro__content {
+    width: 94vw;
   }
 
-  .opening__flowers--right {
-    width: 275px;
+  .invitation-intro__eyebrow {
+    margin-bottom: 35px;
 
-    right: -155px;
+    font-size: 8px;
+
+    letter-spacing: 0.28em;
   }
 
-  .envelope {
-    width: 82vw;
+  .invitation-envelope {
+    width: 86vw;
   }
 
-  .envelope__seal {
-    width: 60px;
-    height: 60px;
+  .invitation-card h2 {
+    font-size: 31px;
+  }
+
+  .wax-seal {
+    width: 65px;
+    height: 65px;
+  }
+
+  .wax-seal__letters {
+    font-size: 20px;
+  }
+
+  .tap-to-open {
+    margin-top: 42px;
+
+    font-size: 8px;
   }
 
 
   /* HERO */
 
+  .hero {
+    min-height: 92svh;
+  }
+
   .hero__brand {
-    top: 25px;
+    top: 24px;
     left: 22px;
 
-    font-size: 23px;
+    font-size: 22px;
   }
 
   .hero__nav {
-    top: 30px;
+    top: 29px;
     right: 20px;
 
     gap: 11px;
 
-    font-size: 9px;
+    font-size: 8px;
   }
 
   .hero__content {
     width:
       calc(100% - 44px);
 
-    padding-bottom: 12vh;
+    padding-bottom: 11vh;
   }
 
   .hero__script {
     font-size:
       clamp(
-        76px,
-        25vw,
-        115px
+        72px,
+        24vw,
+        108px
       );
   }
 
   .hero__subtitle {
     margin-top: 25px;
 
-    font-size: 9px;
+    font-size: 8px;
   }
 
 
@@ -1764,14 +2026,18 @@ button {
   }
 
   .story__photos {
-    min-height: 340px;
+    min-height: 350px;
   }
 
   .story__branch {
-    width: 90px;
+    width: 85px;
 
     top: 30%;
-    right: -35px;
+    right: -30px;
+  }
+
+  .story__note {
+    font-size: 27px;
   }
 
 
@@ -1808,7 +2074,7 @@ button {
   }
 
   .gallery__grid img {
-    height: 330px;
+    height: 340px;
   }
 
 
@@ -1829,6 +2095,10 @@ button {
     height: 520px;
   }
 
+  .save-date blockquote {
+    font-size: 18px;
+  }
+
 
   /* COUNTDOWN */
 
@@ -1843,12 +2113,13 @@ button {
   }
 
   .countdown__numbers strong {
-    font-size: 37px;
+    font-size: 36px;
   }
 
   .countdown__numbers span {
     font-size: 6px;
-    letter-spacing: 0.15em;
+
+    letter-spacing: 0.12em;
   }
 
 
@@ -1877,7 +2148,7 @@ button {
 
     border-bottom:
       1px solid
-      rgba(91,68,61,0.15);
+      rgba(91, 68, 61, 0.15);
   }
 
   .details__grid article:last-child {
@@ -1885,7 +2156,27 @@ button {
   }
 
 
-  /* DAY */
+  /* DRESS CODE */
+
+  .dress-code {
+    padding:
+      75px
+      20px;
+  }
+
+  .dress-code__branch {
+    width: 90px;
+
+    right: -20px;
+  }
+
+  .color {
+    width: 43px;
+    height: 43px;
+  }
+
+
+  /* THE DAY */
 
   .day {
     grid-template-columns: 1fr;
@@ -1903,7 +2194,7 @@ button {
   }
 
   .day__photos img {
-    height: 300px;
+    height: 290px;
   }
 
 
@@ -1919,7 +2210,7 @@ button {
   }
 
   .celebration__text span {
-    font-size: 42px;
+    font-size: 43px;
   }
 
   .celebration__text strong {
@@ -1955,24 +2246,28 @@ button {
   }
 
   .location__map img {
-    height: 260px;
+    height: 270px;
   }
 
 }
 
 
 /* =========================================================
-   VERY SMALL MOBILE
+   SMALL PHONES
 ========================================================= */
 
-@media (max-width: 390px) {
+@media (max-width: 420px) {
 
   .hero__nav {
     display: none;
   }
 
+  .invitation-envelope {
+    width: 90vw;
+  }
+
   .story__photos {
-    min-height: 300px;
+    min-height: 310px;
   }
 
   .story__note {
@@ -1981,7 +2276,7 @@ button {
 
   .day__schedule article {
     grid-template-columns:
-      65px 1fr;
+      62px minmax(0, 1fr);
 
     gap: 14px;
 
@@ -1992,6 +2287,14 @@ button {
     padding:
       34px
       20px;
+  }
+
+  .countdown__numbers strong {
+    font-size: 31px;
+  }
+
+  .countdown__numbers span {
+    font-size: 5px;
   }
 
 }
@@ -2018,738 +2321,6 @@ button {
 
     transition-duration:
       0.01ms !important;
-  }
-
-}
-/* =========================================================
-   SELMIO — LUXURY INVITATION INTRO
-   ========================================================= */
-
-.invitation-intro {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  z-index: 99999;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-
-  background:
-    radial-gradient(
-      circle at 50% 45%,
-      rgba(255,255,255,.75) 0%,
-      rgba(250,243,235,.92) 42%,
-      rgba(239,220,204,.96) 100%
-    );
-
-  transition:
-    opacity 1s ease,
-    visibility 1s ease;
-}
-
-
-/* ---------------------------------------------------------
-   MAIN CONTENT
---------------------------------------------------------- */
-
-.invitation-intro__content {
-  position: relative;
-  z-index: 3;
-
-  width: min(760px, 90vw);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-}
-
-
-/* ---------------------------------------------------------
-   TOP TEXT
---------------------------------------------------------- */
-
-.invitation-intro__eyebrow {
-  margin: 0 0 48px;
-
-  color: #7a2635;
-
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-
-  letter-spacing: .38em;
-  text-transform: uppercase;
-}
-
-.invitation-intro__eyebrow::after {
-  content: "";
-
-  display: block;
-
-  width: 54px;
-  height: 1px;
-
-  margin: 20px auto 0;
-
-  background: #9d6670;
-}
-
-
-/* =========================================================
-   ENVELOPE
-   ========================================================= */
-
-.invitation-envelope {
-  position: relative;
-
-  width: min(570px, 78vw);
-  aspect-ratio: 1.58 / 1;
-
-  cursor: pointer;
-
-  filter: drop-shadow(0 28px 28px rgba(74, 42, 35, .18));
-
-  transform: translateZ(0);
-}
-
-
-/* ---------------------------------------------------------
-   ENVELOPE BACK
---------------------------------------------------------- */
-
-.envelope-back {
-  position: absolute;
-  inset: 0;
-
-  z-index: 1;
-
-  border: 1px solid rgba(122, 79, 66, .12);
-
-  background:
-    linear-gradient(
-      145deg,
-      #f3e5d6 0%,
-      #ead4c0 100%
-    );
-
-  border-radius: 3px;
-}
-
-
-/* ---------------------------------------------------------
-   CARD INSIDE ENVELOPE
---------------------------------------------------------- */
-
-.invitation-card {
-  position: absolute;
-
-  z-index: 2;
-
-  left: 8%;
-  top: -10%;
-
-  width: 84%;
-  height: 82%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-
-  border: 1px solid rgba(116, 71, 61, .22);
-
-  background:
-    linear-gradient(
-      135deg,
-      #fffaf4 0%,
-      #f9eee3 100%
-    );
-
-  box-shadow:
-    0 8px 18px rgba(72, 44, 36, .10);
-
-  transition:
-    transform 1.25s cubic-bezier(.22,.7,.25,1),
-    opacity .8s ease;
-}
-
-.invitation-card::before {
-  content: "";
-
-  position: absolute;
-  inset: 9px;
-
-  border: 1px solid rgba(130, 73, 76, .25);
-
-  pointer-events: none;
-}
-
-.invitation-card h2 {
-  position: relative;
-  z-index: 2;
-
-  margin: 0;
-
-  color: #6f2633;
-
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(34px, 5vw, 54px);
-  font-weight: 400;
-
-  letter-spacing: .02em;
-}
-
-.invitation-card__line {
-  position: relative;
-  z-index: 2;
-
-  width: 60px;
-  height: 1px;
-
-  margin: 17px 0;
-
-  background: #b77d83;
-}
-
-.invitation-card p {
-  position: relative;
-  z-index: 2;
-
-  margin: 0;
-
-  color: #8a6460;
-
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 9px;
-
-  letter-spacing: .30em;
-}
-
-
-/* subtle botanical decoration on card */
-
-.invitation-card__flowers {
-  position: absolute;
-
-  top: -15px;
-  right: -10px;
-
-  width: 145px;
-  height: 145px;
-
-  opacity: .55;
-
-  background:
-    radial-gradient(circle at 70% 25%, #d6a4a1 0 5%, transparent 6%),
-    radial-gradient(circle at 82% 39%, #ead0c4 0 7%, transparent 8%),
-    radial-gradient(circle at 55% 18%, #8b8a6b 0 3%, transparent 4%);
-}
-
-
-/* ---------------------------------------------------------
-   TOP FLAP
---------------------------------------------------------- */
-
-.envelope-flap {
-  position: absolute;
-
-  z-index: 3;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 55%;
-
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    50% 100%
-  );
-
-  background:
-    linear-gradient(
-      160deg,
-      #ead5c2 0%,
-      #d9bda7 100%
-    );
-
-  transform-origin: top center;
-
-  transition:
-    transform 1s cubic-bezier(.3,.7,.2,1),
-    z-index .1s linear .45s;
-}
-
-
-/* ---------------------------------------------------------
-   FRONT PART OF ENVELOPE
---------------------------------------------------------- */
-
-.envelope-front {
-  position: absolute;
-  inset: 0;
-
-  z-index: 5;
-
-  overflow: hidden;
-
-  pointer-events: none;
-}
-
-.envelope-front::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      145deg,
-      #f0decd 0%,
-      #e5cbb7 100%
-    );
-
-  clip-path: polygon(
-    0 42%,
-    50% 74%,
-    100% 42%,
-    100% 100%,
-    0 100%
-  );
-}
-
-.envelope-front-left,
-.envelope-front-right {
-  position: absolute;
-  bottom: 0;
-
-  width: 51%;
-  height: 60%;
-
-  background: rgba(246, 230, 216, .65);
-}
-
-.envelope-front-left {
-  left: 0;
-
-  clip-path: polygon(
-    0 0,
-    100% 55%,
-    100% 100%,
-    0 100%
-  );
-}
-
-.envelope-front-right {
-  right: 0;
-
-  clip-path: polygon(
-    100% 0,
-    0 55%,
-    0 100%,
-    100% 100%
-  );
-}
-
-
-/* =========================================================
-   BURGUNDY RIBBON
-   ========================================================= */
-
-.envelope-ribbon {
-  position: absolute;
-
-  z-index: 7;
-
-  left: 0;
-  top: 61%;
-
-  width: 100%;
-  height: 38px;
-
-  transform: translateY(-50%);
-
-  pointer-events: none;
-
-  transition:
-    opacity .5s ease,
-    transform .7s ease;
-}
-
-.envelope-ribbon::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      #842b3d 0%,
-      #651b2c 50%,
-      #7b2537 100%
-    );
-
-  box-shadow:
-    inset 0 2px 3px rgba(255,255,255,.15),
-    inset 0 -2px 4px rgba(44,0,10,.18);
-}
-
-.ribbon-left,
-.ribbon-right {
-  position: absolute;
-
-  top: 23px;
-
-  width: 160px;
-  height: 35px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #8c3042,
-      #671b2d
-    );
-}
-
-.ribbon-left {
-  left: 50%;
-
-  transform:
-    translateX(-96%)
-    rotate(-28deg);
-
-  transform-origin: right center;
-
-  clip-path: polygon(
-    0 0,
-    100% 20%,
-    100% 80%,
-    0 100%,
-    10% 50%
-  );
-}
-
-.ribbon-right {
-  left: 50%;
-
-  transform:
-    translateX(-4%)
-    rotate(15deg);
-
-  transform-origin: left center;
-
-  clip-path: polygon(
-    0 20%,
-    100% 0,
-    90% 50%,
-    100% 100%,
-    0 80%
-  );
-}
-
-
-/* =========================================================
-   WAX SEAL
-   ========================================================= */
-
-.wax-seal {
-  position: absolute;
-
-  z-index: 10;
-
-  left: 50%;
-  top: 61%;
-
-  width: 92px;
-  height: 92px;
-
-  padding: 0;
-
-  transform: translate(-50%, -50%);
-
-  border: 0;
-  border-radius: 50%;
-
-  cursor: pointer;
-
-  color: #f4d9b5;
-
-  background:
-    radial-gradient(
-      circle at 36% 28%,
-      #a64256 0%,
-      #82263a 35%,
-      #64182a 70%,
-      #49101d 100%
-    );
-
-  box-shadow:
-    0 8px 14px rgba(65, 18, 28, .30),
-    inset 0 0 0 4px rgba(255,255,255,.07),
-    inset 0 0 0 8px rgba(75,12,25,.20);
-
-  transition:
-    transform .35s ease,
-    opacity .6s ease;
-}
-
-.wax-seal::before,
-.wax-seal::after {
-  content: "";
-
-  position: absolute;
-
-  border-radius: 50%;
-}
-
-.wax-seal::before {
-  inset: 8px;
-
-  border: 1px solid rgba(245, 213, 173, .42);
-}
-
-.wax-seal::after {
-  inset: -3px;
-
-  border: 2px solid rgba(91, 19, 34, .35);
-}
-
-.wax-seal:hover {
-  transform:
-    translate(-50%, -50%)
-    scale(1.06);
-}
-
-.wax-seal__inner {
-  position: absolute;
-  inset: 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.wax-seal__letters {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 26px;
-  font-weight: 400;
-}
-
-.wax-seal__branch {
-  margin-top: -3px;
-
-  font-size: 18px;
-
-  opacity: .8;
-}
-
-
-/* =========================================================
-   SMALL FLOWERS AROUND SEAL
-   ========================================================= */
-
-.envelope-flowers {
-  position: absolute;
-
-  z-index: 8;
-
-  left: 36%;
-  top: 49%;
-
-  width: 135px;
-  height: 100px;
-
-  pointer-events: none;
-
-  transform: translate(-50%, -50%) rotate(-8deg);
-}
-
-.envelope-flowers::before {
-  content: "✦  ❀  ✦";
-
-  position: absolute;
-
-  color: #7c2939;
-
-  font-size: 28px;
-
-  letter-spacing: 10px;
-
-  text-shadow:
-    -25px 20px 0 #697057,
-    35px -12px 0 #d7b0a5;
-}
-
-
-/* =========================================================
-   TAP TO OPEN
-   ========================================================= */
-
-.tap-to-open {
-  margin-top: 55px;
-  padding: 0;
-
-  border: 0;
-  outline: 0;
-
-  cursor: pointer;
-
-  color: #8a4a55;
-
-  background: transparent;
-
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-
-  letter-spacing: .40em;
-
-  transition:
-    opacity .3s ease,
-    color .3s ease;
-}
-
-.tap-to-open span {
-  display: block;
-
-  width: 48px;
-  height: 1px;
-
-  margin: 18px auto 0;
-
-  background: #aa7079;
-
-  transition: width .35s ease;
-}
-
-.tap-to-open:hover {
-  color: #651b2c;
-}
-
-.tap-to-open:hover span {
-  width: 75px;
-}
-
-
-/* =========================================================
-   OPEN ANIMATION
-   ========================================================= */
-
-.invitation-intro.is-opening .envelope-flap {
-  z-index: 1;
-
-  transform: rotateX(180deg);
-}
-
-.invitation-intro.is-opening .wax-seal {
-  opacity: 0;
-
-  transform:
-    translate(-50%, -50%)
-    scale(.65);
-}
-
-.invitation-intro.is-opening .envelope-ribbon {
-  opacity: 0;
-
-  transform:
-    translateY(-50%)
-    scaleX(.7);
-}
-
-.invitation-intro.is-opening .envelope-flowers {
-  opacity: 0;
-
-  transition: opacity .5s ease;
-}
-
-.invitation-intro.is-opening .invitation-card {
-  transform: translateY(-38%);
-}
-
-.invitation-intro.is-leaving {
-  opacity: 0;
-  visibility: hidden;
-
-  pointer-events: none;
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-  .invitation-intro__content {
-    width: 94vw;
-  }
-
-  .invitation-intro__eyebrow {
-    margin-bottom: 42px;
-
-    font-size: 9px;
-
-    letter-spacing: .28em;
-  }
-
-  .invitation-envelope {
-    width: 86vw;
-  }
-
-  .invitation-card h2 {
-    font-size: 32px;
-  }
-
-  .wax-seal {
-    width: 72px;
-    height: 72px;
-  }
-
-  .wax-seal__letters {
-    font-size: 21px;
-  }
-
-  .envelope-ribbon {
-    height: 29px;
-  }
-
-  .tap-to-open {
-    margin-top: 48px;
-
-    font-size: 9px;
-  }
-
-}
-
-
-/* smaller phones */
-
-@media (max-width: 420px) {
-
-  .invitation-intro__eyebrow {
-    margin-bottom: 34px;
-  }
-
-  .invitation-envelope {
-    width: 91vw;
-  }
-
-  .tap-to-open {
-    margin-top: 42px;
   }
 
 }
