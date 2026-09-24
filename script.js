@@ -5,70 +5,97 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+
   /* =======================================================
-     01 — OPENING ENVELOPE
+     01 — OPENING INVITATION
   ======================================================= */
 
-  const opening = document.getElementById("opening");
-  const envelope = document.getElementById("envelope");
+  const opening =
+    document.getElementById("opening");
+
+  const openingButton =
+    document.getElementById("openingButton");
 
   let invitationOpened = false;
 
 
   function openInvitation() {
 
-    if (invitationOpened) return;
+    if (
+      invitationOpened ||
+      !opening
+    ) {
+      return;
+    }
+
 
     invitationOpened = true;
 
-    // Open envelope
-    envelope.classList.add("is-open");
+
+    /*
+      Start the soft cinematic
+      transition to the website.
+    */
+
+    opening.classList.add("is-opening");
 
 
-    // After the card comes out,
-    // fade away the opening screen
+    /*
+      Unlock the page shortly
+      after the transition begins.
+    */
+
+    setTimeout(() => {
+
+      document.body.classList.remove("locked");
+
+    }, 500);
+
+
+    /*
+      Hide the opening screen
+      after the fade animation.
+    */
+
     setTimeout(() => {
 
       opening.classList.add("is-hidden");
 
-      document.body.classList.remove("locked");
+      opening.setAttribute(
+        "aria-hidden",
+        "true"
+      );
 
-    }, 1900);
+    }, 1100);
 
 
-    // Remove opening screen after animation
+    /*
+      Completely remove it from
+      the page after the animation.
+    */
+
     setTimeout(() => {
 
       opening.style.display = "none";
 
-    }, 3000);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }, 1600);
 
   }
 
 
-  envelope.addEventListener(
-    "click",
-    openInvitation
-  );
+  if (openingButton) {
 
+    openingButton.addEventListener(
+      "click",
+      openInvitation
+    );
 
-  envelope.addEventListener(
-    "keydown",
-    (event) => {
-
-      if (
-        event.key === "Enter" ||
-        event.key === " "
-      ) {
-
-        event.preventDefault();
-
-        openInvitation();
-
-      }
-
-    }
-  );
+  }
 
 
 
@@ -90,30 +117,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /*
-    Wedding date:
-    24 May 2027 at 17:00
-    Lake Como local time
+    Wedding:
+    24 May 2027
+    17:00
+    Lake Como, Italy
   */
 
   const weddingDate =
-    new Date("2027-05-24T17:00:00+02:00");
+    new Date(
+      "2027-05-24T17:00:00+02:00"
+    );
 
 
   function updateCountdown() {
 
-    const now = new Date();
+    if (
+      !daysElement ||
+      !hoursElement ||
+      !minutesElement ||
+      !secondsElement
+    ) {
+      return;
+    }
 
-    let difference =
+
+    const now =
+      new Date();
+
+
+    const difference =
       weddingDate.getTime() -
       now.getTime();
 
 
     if (difference <= 0) {
 
-      daysElement.textContent = "000";
-      hoursElement.textContent = "00";
-      minutesElement.textContent = "00";
-      secondsElement.textContent = "00";
+      daysElement.textContent =
+        "000";
+
+      hoursElement.textContent =
+        "00";
+
+      minutesElement.textContent =
+        "00";
+
+      secondsElement.textContent =
+        "00";
 
       return;
 
@@ -158,21 +207,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     daysElement.textContent =
-      String(days).padStart(3, "0");
+      String(days).padStart(
+        3,
+        "0"
+      );
+
 
     hoursElement.textContent =
-      String(hours).padStart(2, "0");
+      String(hours).padStart(
+        2,
+        "0"
+      );
+
 
     minutesElement.textContent =
-      String(minutes).padStart(2, "0");
+      String(minutes).padStart(
+        2,
+        "0"
+      );
+
 
     secondsElement.textContent =
-      String(seconds).padStart(2, "0");
+      String(seconds).padStart(
+        2,
+        "0"
+      );
 
   }
 
 
   updateCountdown();
+
 
   setInterval(
     updateCountdown,
@@ -182,26 +247,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =======================================================
-     03 — MOBILE GALLERY
+     03 — GALLERY
   ======================================================= */
 
   const galleryGrid =
-    document.getElementById("galleryGrid");
+    document.getElementById(
+      "galleryGrid"
+    );
+
 
   const galleryPrev =
-    document.getElementById("galleryPrev");
+    document.getElementById(
+      "galleryPrev"
+    );
+
 
   const galleryNext =
-    document.getElementById("galleryNext");
+    document.getElementById(
+      "galleryNext"
+    );
+
 
   const galleryCounter =
-    document.getElementById("galleryCounter");
+    document.getElementById(
+      "galleryCounter"
+    );
 
 
   const galleryItems =
     galleryGrid
       ? Array.from(
-          galleryGrid.querySelectorAll("figure")
+          galleryGrid.querySelectorAll(
+            "figure"
+          )
         )
       : [];
 
@@ -211,7 +289,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateGalleryCounter() {
 
-    if (!galleryCounter) return;
+    if (
+      !galleryCounter ||
+      !galleryItems.length
+    ) {
+      return;
+    }
+
 
     galleryCounter.textContent =
       `${currentGalleryItem + 1} / ${galleryItems.length}`;
@@ -221,28 +305,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function scrollToGalleryItem(index) {
 
-    if (!galleryItems.length) return;
+    if (!galleryItems.length) {
+      return;
+    }
 
 
     if (index < 0) {
-      index = galleryItems.length - 1;
+
+      index =
+        galleryItems.length - 1;
+
     }
 
 
-    if (index >= galleryItems.length) {
+    if (
+      index >=
+      galleryItems.length
+    ) {
+
       index = 0;
+
     }
 
 
-    currentGalleryItem = index;
+    currentGalleryItem =
+      index;
 
 
-    galleryItems[currentGalleryItem]
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center"
-      });
+    galleryItems[
+      currentGalleryItem
+    ].scrollIntoView({
+
+      behavior: "smooth",
+
+      block: "nearest",
+
+      inline: "center"
+
+    });
 
 
     updateGalleryCounter();
@@ -295,14 +395,23 @@ document.addEventListener("DOMContentLoaded", () => {
       'input[name="attendance"]'
     );
 
+
   const guestDetails =
-    document.getElementById("guestDetails");
+    document.getElementById(
+      "guestDetails"
+    );
+
 
   const guestCount =
-    document.getElementById("guestCount");
+    document.getElementById(
+      "guestCount"
+    );
+
 
   const companionNames =
-    document.getElementById("companionNames");
+    document.getElementById(
+      "companionNames"
+    );
 
 
   attendanceOptions.forEach(
@@ -312,7 +421,15 @@ document.addEventListener("DOMContentLoaded", () => {
         "change",
         () => {
 
-          if (option.value === "yes") {
+
+          if (!guestDetails) {
+            return;
+          }
+
+
+          if (
+            option.value === "yes"
+          ) {
 
             guestDetails.classList.add(
               "is-visible"
@@ -324,8 +441,21 @@ document.addEventListener("DOMContentLoaded", () => {
               "is-visible"
             );
 
-            guestCount.value = "1";
-            companionNames.value = "";
+
+            if (guestCount) {
+
+              guestCount.value =
+                "1";
+
+            }
+
+
+            if (companionNames) {
+
+              companionNames.value =
+                "";
+
+            }
 
           }
 
@@ -343,10 +473,15 @@ document.addEventListener("DOMContentLoaded", () => {
   ======================================================= */
 
   const rsvpForm =
-    document.getElementById("rsvpForm");
+    document.getElementById(
+      "rsvpForm"
+    );
+
 
   const rsvpStatus =
-    document.getElementById("rsvpStatus");
+    document.getElementById(
+      "rsvpStatus"
+    );
 
 
   if (rsvpForm) {
@@ -355,14 +490,28 @@ document.addEventListener("DOMContentLoaded", () => {
       "submit",
       (event) => {
 
+
         event.preventDefault();
 
 
+        const guestNameInput =
+          document.getElementById(
+            "guestName"
+          );
+
+
+        const guestMessageInput =
+          document.getElementById(
+            "guestMessage"
+          );
+
+
         const guestName =
-          document
-            .getElementById("guestName")
-            .value
-            .trim();
+          guestNameInput
+            ? guestNameInput
+                .value
+                .trim()
+            : "";
 
 
         const attendance =
@@ -372,16 +521,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         const guestMessage =
-          document
-            .getElementById("guestMessage")
-            .value
-            .trim();
+          guestMessageInput
+            ? guestMessageInput
+                .value
+                .trim()
+            : "";
 
 
-        if (!guestName || !attendance) {
+        if (
+          !guestName ||
+          !attendance
+        ) {
 
-          rsvpStatus.textContent =
-            "Please complete the required fields.";
+          if (rsvpStatus) {
+
+            rsvpStatus.textContent =
+              "Please complete the required fields.";
+
+          }
 
           return;
 
@@ -389,41 +546,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /*
-          IMPORTANT
+          DEMO MODE
 
-          At the moment this is DEMO MODE.
-
-          The information is collected here,
-          but it is NOT yet sent to our online
-          database.
-
-          Later we will connect this section
-          to the RSVP database.
+          RSVP information is currently
+          not sent to a database.
         */
 
 
         const rsvpData = {
 
-          name: guestName,
+          name:
+            guestName,
+
 
           attendance:
             attendance.value,
 
+
           guestCount:
-            attendance.value === "yes"
-              ? Number(guestCount.value)
+            attendance.value === "yes" &&
+            guestCount
+              ? Number(
+                  guestCount.value
+                )
               : 0,
 
+
           companions:
-            attendance.value === "yes"
-              ? companionNames.value.trim()
+            attendance.value === "yes" &&
+            companionNames
+              ? companionNames
+                  .value
+                  .trim()
               : "",
+
 
           message:
             guestMessage,
 
+
           submittedAt:
-            new Date().toISOString()
+            new Date()
+              .toISOString()
 
         };
 
@@ -434,15 +598,21 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-        if (attendance.value === "yes") {
+        if (rsvpStatus) {
 
-          rsvpStatus.textContent =
-            `Thank you, ${guestName}. We can't wait to celebrate with you!`;
+          if (
+            attendance.value === "yes"
+          ) {
 
-        } else {
+            rsvpStatus.textContent =
+              `Thank you, ${guestName}. We can't wait to celebrate with you!`;
 
-          rsvpStatus.textContent =
-            `Thank you for letting us know, ${guestName}. You will be missed!`;
+          } else {
+
+            rsvpStatus.textContent =
+              `Thank you for letting us know, ${guestName}. You will be missed!`;
+
+          }
 
         }
 
@@ -453,12 +623,18 @@ document.addEventListener("DOMContentLoaded", () => {
           );
 
 
-        submitButton.textContent =
-          "RSVP RECEIVED";
+        if (submitButton) {
 
-        submitButton.disabled = true;
+          submitButton.textContent =
+            "RSVP RECEIVED";
 
-        submitButton.style.opacity = "0.7";
+          submitButton.disabled =
+            true;
+
+          submitButton.style.opacity =
+            "0.7";
+
+        }
 
       }
     );
@@ -484,8 +660,11 @@ document.addEventListener("DOMContentLoaded", () => {
         "click",
         (event) => {
 
+
           const targetId =
-            link.getAttribute("href");
+            link.getAttribute(
+              "href"
+            );
 
 
           if (
@@ -502,15 +681,20 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
 
-          if (!target) return;
+          if (!target) {
+            return;
+          }
 
 
           event.preventDefault();
 
 
           target.scrollIntoView({
+
             behavior: "smooth",
+
             block: "start"
+
           });
 
         }
@@ -518,5 +702,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
   );
+
 
 });
