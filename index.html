@@ -54,61 +54,84 @@
   <div class="opening__content">
 
     <p class="opening__small">
+      <!-- =========================
+     SELMIO INVITATION INTRO
+========================= -->
+
+<div id="invitationIntro" class="invitation-intro">
+
+  <div class="intro-flower intro-flower--top"></div>
+  <div class="intro-flower intro-flower--bottom"></div>
+
+  <div class="invitation-intro__content">
+
+    <p class="invitation-intro__eyebrow">
       A SPECIAL INVITATION FOR YOU
     </p>
 
+    <div class="invitation-envelope" id="invitationEnvelope">
 
-    <div
-      class="envelope"
-      id="envelope"
-      role="button"
-      tabindex="0"
-      aria-label="Open wedding invitation"
-    >
+      <!-- Card inside envelope -->
+      <div class="invitation-card">
+        <div class="invitation-card__flowers"></div>
 
-      <div class="envelope__back"></div>
+        <h2>Amelia &amp; Oliver</h2>
 
+        <span class="invitation-card__line"></span>
 
-      <div class="envelope__letter">
-
-        <span>Amelia</span>
-
-        <em>&</em>
-
-        <span>Oliver</span>
-
-        <small>
-          24 · 05 · 2027
-        </small>
-
+        <p>24 · 05 · 2027</p>
       </div>
 
+      <!-- Back of envelope -->
+      <div class="envelope-back"></div>
 
-      <div class="envelope__front"></div>
+      <!-- Envelope flap -->
+      <div class="envelope-flap"></div>
 
-      <div class="envelope__flap"></div>
+      <!-- Front -->
+      <div class="envelope-front">
+        <div class="envelope-front-left"></div>
+        <div class="envelope-front-right"></div>
+      </div>
 
+      <!-- Burgundy ribbon -->
+      <div class="envelope-ribbon">
+        <span class="ribbon-left"></span>
+        <span class="ribbon-right"></span>
+      </div>
 
-      <div class="envelope__seal">
+      <!-- Flowers -->
+      <div class="envelope-flowers"></div>
 
-        <span>
-          A&O
+      <!-- Wax seal -->
+      <button
+        class="wax-seal"
+        id="waxSeal"
+        type="button"
+        aria-label="Open invitation"
+      >
+        <span class="wax-seal__inner">
+          <span class="wax-seal__letters">A&amp;O</span>
+          <span class="wax-seal__branch">⌁</span>
         </span>
-
-      </div>
+      </button>
 
     </div>
 
-
-    <p class="opening__tap">
+    <button
+      class="tap-to-open"
+      id="openInvitation"
+      type="button"
+    >
       TAP TO OPEN
-    </p>
+      <span></span>
+    </button>
 
   </div>
 
 </div>
 
-
+<!-- END SELMIO INVITATION INTRO -->
 
 <!-- ======================================================
      WEBSITE
