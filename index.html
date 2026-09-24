@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
 
@@ -8,210 +9,916 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <meta
-    name="description"
-    content="Amelia & Oliver — Wedding Invitation"
-  >
-
   <title>Amelia & Oliver | Wedding Invitation</title>
 
-  <!-- Elegant serif -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap"
     rel="stylesheet"
   >
 
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
 
-  <!-- =========================
-       HERO / FIRST SCREEN
-  ========================== -->
-
-  <main class="wedding-page">
-
-    <section class="hero" id="home">
-
-      <!-- Decorative background -->
-      <div class="hero__paper"></div>
-
-      <!--
-        Эти изображения создадим отдельно.
-        Пока они могут отсутствовать — это нормально.
-      -->
-
-      <img
-        class="hero__flowers hero__flowers--top"
-        src="images/flowers-top.png"
-        alt=""
-        aria-hidden="true"
-      >
-
-      <img
-        class="hero__flowers hero__flowers--left"
-        src="images/flowers-left.png"
-        alt=""
-        aria-hidden="true"
-      >
-
-      <img
-        class="hero__flowers hero__flowers--right"
-        src="images/flowers-right.png"
-        alt=""
-        aria-hidden="true"
-      >
+<body class="locked">
 
 
-      <!-- Small introductory text -->
-      <div class="hero__intro">
-        <span class="hero__line"></span>
+<!-- ======================================================
+     01. OPENING ENVELOPE
+====================================================== -->
 
-        <p>
-          WE ARE GETTING MARRIED
-        </p>
+<div class="opening" id="opening">
 
-        <span class="hero__line"></span>
-      </div>
+  <div class="opening__flowers opening__flowers--left">
+    <img src="images/opening-flowers-left.png" alt="">
+  </div>
 
-
-      <!-- Couple names -->
-      <header class="hero__title">
-
-        <span class="hero__name">
-          Amelia
-        </span>
-
-        <span class="hero__ampersand">
-          &
-        </span>
-
-        <span class="hero__name">
-          Oliver
-        </span>
-
-      </header>
+  <div class="opening__flowers opening__flowers--right">
+    <img src="images/opening-flowers-right.png" alt="">
+  </div>
 
 
-      <!-- Date -->
-      <div class="hero__date">
-        <span>18</span>
-        <i></i>
-        <span>07</span>
-        <i></i>
-        <span>2027</span>
-      </div>
+  <div class="opening__content">
+
+    <p class="opening__small">
+      A SPECIAL INVITATION FOR YOU
+    </p>
 
 
-      <!-- Main composition -->
-      <div class="hero__composition">
-
-        <!-- Decorative arch -->
-        <div class="hero__arch">
-
-          <!-- Couple photograph -->
-          <div class="hero__photo">
-
-            <img
-              src="images/couple-main.jpg"
-              alt="Amelia and Oliver"
-            >
-
-            <div class="hero__photo-overlay"></div>
-
-          </div>
-
-        </div>
-
-
-        <!-- Small decorative card -->
-        <div class="hero__mini-card">
-
-          <span>OUR</span>
-
-          <strong>
-            love
-          </strong>
-
-          <span>STORY</span>
-
-        </div>
-
-
-        <!-- Handwritten detail -->
-        <div class="hero__signature">
-          forever begins here
-        </div>
-
-      </div>
-
-
-      <!-- Bottom -->
-      <div class="hero__bottom">
-
-        <p>
-          JOIN US TO CELEBRATE
-        </p>
-
-        <a
-          class="hero__scroll"
-          href="#invitation"
-          aria-label="Scroll to invitation"
-        >
-          <span></span>
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         SECOND SECTION
-         Пока оставляем минимальную
-         структуру для продолжения
-    ========================== -->
-
-    <section
-      class="invitation"
-      id="invitation"
+    <div
+      class="envelope"
+      id="envelope"
+      role="button"
+      tabindex="0"
+      aria-label="Open wedding invitation"
     >
 
-      <div class="invitation__inner">
+      <div class="envelope__back"></div>
 
-        <p class="section-script">
-          Together with our families
-        </p>
 
-        <h2 class="section-title">
-          WE INVITE YOU
-          <br>
-          TO CELEBRATE OUR LOVE
-        </h2>
+      <!-- Invitation card inside envelope -->
 
-        <div class="section-divider">
-          <span></span>
-          <i>✦</i>
-          <span></span>
-        </div>
+      <div class="envelope__letter">
 
-        <p class="section-text">
-          We would be delighted to share
-          this beautiful day with you.
+        <span>Amelia</span>
+
+        <em>&</em>
+
+        <span>Oliver</span>
+
+        <small>
+          18 · 07 · 2027
+        </small>
+
+      </div>
+
+
+      <div class="envelope__front"></div>
+
+      <div class="envelope__flap"></div>
+
+
+      <!-- Wax seal -->
+
+      <div class="envelope__seal">
+
+        <span>
+          A&O
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <p class="opening__tap">
+      TAP TO OPEN
+    </p>
+
+  </div>
+
+</div>
+
+
+
+<!-- ======================================================
+     WEDDING WEBSITE
+====================================================== -->
+
+<main
+  class="wedding-site"
+  id="weddingSite"
+>
+
+
+
+<!-- ======================================================
+     02. HERO — YOU'RE INVITED
+====================================================== -->
+
+<section
+  class="hero"
+  id="home"
+>
+
+  <img
+    class="hero__image"
+    src="images/hero-couple.jpg"
+    alt="Amelia and Oliver"
+  >
+
+
+  <div class="hero__shade"></div>
+
+
+  <!-- SELMIO demo branding -->
+
+  <div class="hero__brand">
+    SELMIO
+  </div>
+
+
+  <nav class="hero__nav">
+
+    <a href="#story">
+      Our Story
+    </a>
+
+    <a href="#details">
+      Details
+    </a>
+
+    <a href="#rsvp">
+      RSVP
+    </a>
+
+  </nav>
+
+
+  <div class="hero__content">
+
+    <p class="hero__script">
+      You're
+      <br>
+      Invited
+    </p>
+
+    <p class="hero__subtitle">
+      TO OUR WEDDING
+    </p>
+
+    <span class="hero__date">
+      24 · 05 · 2027
+    </span>
+
+  </div>
+
+
+  <a
+    href="#story"
+    class="hero__scroll"
+    aria-label="Continue"
+  >
+    ↓
+  </a>
+
+</section>
+
+
+
+<!-- ======================================================
+     03. OUR STORY
+====================================================== -->
+
+<section
+  class="story section-light"
+  id="story"
+>
+
+  <div class="story__inner">
+
+
+    <div class="story__text">
+
+      <p class="section-label">
+        OUR STORY
+      </p>
+
+      <span class="section-line"></span>
+
+
+      <p>
+        Two hearts, one journey.
+      </p>
+
+      <p>
+        What started as a chance meeting
+        turned into a lifetime of love,
+        adventures and beautiful moments.
+      </p>
+
+      <p>
+        And now, we can't wait to celebrate
+        this next chapter with the people
+        who mean the most to us.
+      </p>
+
+    </div>
+
+
+    <div class="story__branch">
+      <img
+        src="images/branch-line.png"
+        alt=""
+      >
+    </div>
+
+
+    <div class="story__photos">
+
+
+      <figure class="polaroid polaroid--one">
+
+        <img
+          src="images/story-01.jpg"
+          alt="Amelia and Oliver"
+        >
+
+      </figure>
+
+
+      <figure class="polaroid polaroid--two">
+
+        <img
+          src="images/story-02.jpg"
+          alt="Wedding rings"
+        >
+
+      </figure>
+
+
+      <span class="story__note">
+        Better
+        <br>
+        Together ♡
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     04. GALLERY
+====================================================== -->
+
+<section
+  class="gallery section-light"
+  id="gallery"
+>
+
+  <p class="section-label section-label--center">
+    GALLERY
+  </p>
+
+  <span class="section-line section-line--center"></span>
+
+
+  <div class="gallery__grid">
+
+    <figure>
+      <img
+        src="images/gallery-01.jpg"
+        alt="Wedding dinner"
+      >
+    </figure>
+
+    <figure>
+      <img
+        src="images/gallery-02.jpg"
+        alt="Lake Como"
+      >
+    </figure>
+
+    <figure>
+      <img
+        src="images/gallery-03.jpg"
+        alt="Wedding flowers"
+      >
+    </figure>
+
+  </div>
+
+
+  <div class="gallery__controls">
+
+    <button
+      type="button"
+      id="galleryPrev"
+      aria-label="Previous gallery images"
+    >
+      ←
+    </button>
+
+    <span id="galleryCounter">
+      1 / 3
+    </span>
+
+    <button
+      type="button"
+      id="galleryNext"
+      aria-label="Next gallery images"
+    >
+      →
+    </button>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     05. ENVELOPE / DATE
+====================================================== -->
+
+<section class="save-date">
+
+  <div class="save-date__envelope">
+
+    <img
+      src="images/envelope-scene.jpg"
+      alt="Wedding invitation envelope"
+    >
+
+  </div>
+
+
+  <div class="save-date__text">
+
+    <p class="section-label section-label--center">
+      A NEW CHAPTER
+      <br>
+      BEGINS
+    </p>
+
+    <span class="section-line section-line--center"></span>
+
+
+    <h2>
+      24 · 05 · 2027
+    </h2>
+
+    <p>
+      LAKE COMO, ITALY
+    </p>
+
+  </div>
+
+
+  <div class="save-date__lake">
+
+    <img
+      src="images/lake-como.jpg"
+      alt="Wedding venue at Lake Como"
+    >
+
+  </div>
+
+
+  <blockquote>
+    “Some stories are written in the stars,
+    <br>
+    ours is written in every moment we share.”
+  </blockquote>
+
+</section>
+
+
+
+<!-- ======================================================
+     06. COUNTDOWN
+====================================================== -->
+
+<section class="countdown">
+
+  <div class="countdown__background"></div>
+
+
+  <p class="section-label section-label--light">
+    COUNTING DOWN
+  </p>
+
+  <span class="section-line section-line--light"></span>
+
+
+  <div class="countdown__numbers">
+
+    <div>
+
+      <strong id="days">
+        000
+      </strong>
+
+      <span>
+        DAYS
+      </span>
+
+    </div>
+
+
+    <div>
+
+      <strong id="hours">
+        00
+      </strong>
+
+      <span>
+        HOURS
+      </span>
+
+    </div>
+
+
+    <div>
+
+      <strong id="minutes">
+        00
+      </strong>
+
+      <span>
+        MINUTES
+      </span>
+
+    </div>
+
+
+    <div>
+
+      <strong id="seconds">
+        00
+      </strong>
+
+      <span>
+        SECONDS
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     07. THE DETAILS
+====================================================== -->
+
+<section
+  class="details section-light"
+  id="details"
+>
+
+  <p class="section-label section-label--center">
+    THE DETAILS
+  </p>
+
+  <span class="section-line section-line--center"></span>
+
+
+  <div class="details__grid">
+
+
+    <article>
+
+      <span class="details__icon">
+        ♧
+      </span>
+
+      <small>
+        DATE
+      </small>
+
+      <p>
+        24 May 2027
+        <br>
+        Saturday
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <span class="details__icon">
+        ◇
+      </span>
+
+      <small>
+        VENUE
+      </small>
+
+      <p>
+        Villa del Balbianello
+        <br>
+        Lake Como, Italy
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <span class="details__icon">
+        ♡
+      </span>
+
+      <small>
+        CEREMONY
+      </small>
+
+      <p>
+        at 17:00
+        <br>
+        Reception to follow
+      </p>
+
+    </article>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     08. DRESS CODE
+====================================================== -->
+
+<section class="dress-code section-light">
+
+  <img
+    class="dress-code__branch"
+    src="images/branch-line.png"
+    alt=""
+  >
+
+
+  <p class="section-label section-label--center">
+    DRESS CODE
+  </p>
+
+  <span class="section-line section-line--center"></span>
+
+
+  <p class="dress-code__subtitle">
+    Elegant attire
+  </p>
+
+
+  <div class="dress-code__colors">
+
+    <span class="color color--wine"></span>
+
+    <span class="color color--rose"></span>
+
+    <span class="color color--cream"></span>
+
+    <span class="color color--beige"></span>
+
+    <span class="color color--olive"></span>
+
+  </div>
+
+
+  <p class="dress-code__note">
+    We would love to see you in these colors.
+  </p>
+
+</section>
+
+
+
+<!-- ======================================================
+     09. THE DAY
+====================================================== -->
+
+<section class="day section-light">
+
+  <div class="day__photos">
+
+    <img
+      src="images/day-01.jpg"
+      alt="Wedding table"
+    >
+
+    <img
+      src="images/day-02.jpg"
+      alt="Wedding venue"
+    >
+
+  </div>
+
+
+  <div class="day__schedule">
+
+    <p class="section-label">
+      THE DAY
+    </p>
+
+    <span class="section-line"></span>
+
+
+    <article>
+
+      <time>
+        16:30
+      </time>
+
+      <div>
+
+        <strong>
+          Guests Arrival
+        </strong>
+
+        <p>
+          Welcome drinks
         </p>
 
       </div>
 
-    </section>
-
-  </main>
+    </article>
 
 
-  <script src="script.js"></script>
+    <article>
+
+      <time>
+        17:00
+      </time>
+
+      <div>
+
+        <strong>
+          Ceremony
+        </strong>
+
+        <p>
+          Exchange of vows
+        </p>
+
+      </div>
+
+    </article>
+
+
+    <article>
+
+      <time>
+        18:00
+      </time>
+
+      <div>
+
+        <strong>
+          Cocktail Hour
+        </strong>
+
+        <p>
+          Drinks & Canapés
+        </p>
+
+      </div>
+
+    </article>
+
+
+    <article>
+
+      <time>
+        20:00
+      </time>
+
+      <div>
+
+        <strong>
+          Reception Dinner
+        </strong>
+
+        <p>
+          Dinner & Speeches
+        </p>
+
+      </div>
+
+    </article>
+
+
+    <article>
+
+      <time>
+        22:00
+      </time>
+
+      <div>
+
+        <strong>
+          Let's Celebrate
+        </strong>
+
+        <p>
+          Dancing the night away
+        </p>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     10. CELEBRATION IMAGE
+====================================================== -->
+
+<section class="celebration">
+
+  <img
+    src="images/celebration.jpg"
+    alt="Wedding celebration at Lake Como"
+  >
+
+
+  <div class="celebration__overlay"></div>
+
+
+  <div class="celebration__text">
+
+    <span>
+      A celebration
+    </span>
+
+    <strong>
+      OF LOVE
+    </strong>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     11. RSVP
+====================================================== -->
+
+<section
+  class="rsvp section-light"
+  id="rsvp"
+>
+
+  <img
+    class="rsvp__branch"
+    src="images/branch-line.png"
+    alt=""
+  >
+
+
+  <p class="section-label section-label--center">
+    RSVP
+  </p>
+
+  <span class="section-line section-line--center"></span>
+
+
+  <p class="rsvp__text">
+    Kindly let us know if you'll be joining us
+    <br>
+    by 1 April 2027.
+  </p>
+
+
+  <div class="rsvp__buttons">
+
+    <button
+      class="rsvp__button rsvp__button--yes"
+      data-response="yes"
+    >
+      I'LL BE THERE
+    </button>
+
+
+    <button
+      class="rsvp__button rsvp__button--no"
+      data-response="no"
+    >
+      SADLY CAN'T MAKE IT
+    </button>
+
+  </div>
+
+
+  <p
+    class="rsvp__message"
+    id="rsvpMessage"
+  ></p>
+
+</section>
+
+
+
+<!-- ======================================================
+     12. LOCATION
+====================================================== -->
+
+<section class="location section-light">
+
+  <p class="section-label section-label--center">
+    LOCATION
+  </p>
+
+  <span class="section-line section-line--center"></span>
+
+
+  <div class="location__map">
+
+    <img
+      src="images/location-map.jpg"
+      alt="Villa del Balbianello location"
+    >
+
+  </div>
+
+
+  <h3>
+    Villa del Balbianello
+  </h3>
+
+  <p>
+    Lake Como, Italy
+  </p>
+
+
+  <a
+    class="location__link"
+    href="https://maps.google.com/"
+    target="_blank"
+    rel="noopener"
+  >
+    GET DIRECTIONS →
+  </a>
+
+</section>
+
+
+
+<!-- ======================================================
+     13. FOOTER
+====================================================== -->
+
+<footer class="footer">
+
+  <p class="footer__names">
+    Amelia
+    <span>&</span>
+    Oliver
+  </p>
+
+
+  <p class="footer__date">
+    24 · 05 · 2027
+  </p>
+
+
+  <div class="footer__brand">
+
+    SELMIO
+
+    <small>
+      Digital Experiences
+    </small>
+
+  </div>
+
+</footer>
+
+
+</main>
+
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
