@@ -1,57 +1,217 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Amelia & Oliver — Wedding</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Amelia & Oliver — Wedding Invitation"
+  >
+
+  <title>Amelia & Oliver | Wedding Invitation</title>
+
+  <!-- Elegant serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<section class="hero">
-  <div class="botanical left">❀<br>❧</div><div class="botanical right">❀<br>❧</div>
-  <p class="eyebrow">WE ARE GETTING MARRIED</p>
-  <h1>Amelia <em>&</em> Oliver</h1>
-  <p class="date">18 · 07 · 2027</p>
-  <div class="arch"><div class="couple"><span>OUR</span><b>LOVE</b><span>STORY</span></div></div>
-  <p class="scroll">SCROLL TO CELEBRATE WITH US ↓</p>
-</section>
 
-<section class="intro ornament">
- <p class="script">Together with our families</p>
- <h2>WE INVITE YOU<br>TO CELEBRATE OUR LOVE</h2>
- <p class="copy">We would be delighted to share this beautiful day with the people who make our lives brighter.</p>
-</section>
+  <!-- =========================
+       HERO / FIRST SCREEN
+  ========================== -->
 
-<section class="details">
- <div class="card"><span>01</span><h3>CEREMONY</h3><p>16:00</p><small>The Garden Chapel</small></div>
- <div class="flower">✾</div>
- <div class="card"><span>02</span><h3>DINNER</h3><p>18:00</p><small>Grand Hall</small></div>
- <div class="card"><span>03</span><h3>CELEBRATION</h3><p>20:00</p><small>Dancing under the stars</small></div>
-</section>
+  <main class="wedding-page">
 
-<section class="quote">
- <div class="frame"><p>“Whatever our souls are made of,<br>his and mine are the same.”</p><small>— EMILY BRONTË</small></div>
-</section>
+    <section class="hero" id="home">
 
-<section class="dress ornament">
- <p class="script">Dress code</p><h2>A TOUCH OF ELEGANCE</h2>
- <p class="copy">We would love to see you in soft, timeless tones.</p>
- <div class="palette"><i></i><i></i><i></i><i></i><i></i></div>
-</section>
+      <!-- Decorative background -->
+      <div class="hero__paper"></div>
 
-<section class="countdown">
- <p class="eyebrow">UNTIL OUR DAY</p><h2 id="count">000 DAYS · 00 HOURS · 00 MIN</h2>
-</section>
+      <!--
+        Эти изображения создадим отдельно.
+        Пока они могут отсутствовать — это нормально.
+      -->
 
-<section class="rsvp">
- <div class="rsvpbox"><p class="script">Will you join us?</p><h2>RSVP</h2>
- <form onsubmit="event.preventDefault();document.getElementById('thanks').hidden=false">
- <input placeholder="Your name" required><select><option>Joyfully accepts</option><option>Regretfully declines</option></select>
- <button>CONFIRM ATTENDANCE</button><p id="thanks" hidden>Thank you — we can’t wait to celebrate with you.</p></form></div>
-</section>
+      <img
+        class="hero__flowers hero__flowers--top"
+        src="images/flowers-top.png"
+        alt=""
+        aria-hidden="true"
+      >
 
-<footer><h2>A <em>&</em> O</h2><p>18 JULY 2027</p><small>Made with love · SELMIO</small></footer>
-<script src="script.js"></script>
-</body></html>
+      <img
+        class="hero__flowers hero__flowers--left"
+        src="images/flowers-left.png"
+        alt=""
+        aria-hidden="true"
+      >
+
+      <img
+        class="hero__flowers hero__flowers--right"
+        src="images/flowers-right.png"
+        alt=""
+        aria-hidden="true"
+      >
+
+
+      <!-- Small introductory text -->
+      <div class="hero__intro">
+        <span class="hero__line"></span>
+
+        <p>
+          WE ARE GETTING MARRIED
+        </p>
+
+        <span class="hero__line"></span>
+      </div>
+
+
+      <!-- Couple names -->
+      <header class="hero__title">
+
+        <span class="hero__name">
+          Amelia
+        </span>
+
+        <span class="hero__ampersand">
+          &
+        </span>
+
+        <span class="hero__name">
+          Oliver
+        </span>
+
+      </header>
+
+
+      <!-- Date -->
+      <div class="hero__date">
+        <span>18</span>
+        <i></i>
+        <span>07</span>
+        <i></i>
+        <span>2027</span>
+      </div>
+
+
+      <!-- Main composition -->
+      <div class="hero__composition">
+
+        <!-- Decorative arch -->
+        <div class="hero__arch">
+
+          <!-- Couple photograph -->
+          <div class="hero__photo">
+
+            <img
+              src="images/couple-main.jpg"
+              alt="Amelia and Oliver"
+            >
+
+            <div class="hero__photo-overlay"></div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Small decorative card -->
+        <div class="hero__mini-card">
+
+          <span>OUR</span>
+
+          <strong>
+            love
+          </strong>
+
+          <span>STORY</span>
+
+        </div>
+
+
+        <!-- Handwritten detail -->
+        <div class="hero__signature">
+          forever begins here
+        </div>
+
+      </div>
+
+
+      <!-- Bottom -->
+      <div class="hero__bottom">
+
+        <p>
+          JOIN US TO CELEBRATE
+        </p>
+
+        <a
+          class="hero__scroll"
+          href="#invitation"
+          aria-label="Scroll to invitation"
+        >
+          <span></span>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SECOND SECTION
+         Пока оставляем минимальную
+         структуру для продолжения
+    ========================== -->
+
+    <section
+      class="invitation"
+      id="invitation"
+    >
+
+      <div class="invitation__inner">
+
+        <p class="section-script">
+          Together with our families
+        </p>
+
+        <h2 class="section-title">
+          WE INVITE YOU
+          <br>
+          TO CELEBRATE OUR LOVE
+        </h2>
+
+        <div class="section-divider">
+          <span></span>
+          <i>✦</i>
+          <span></span>
+        </div>
+
+        <p class="section-text">
+          We would be delighted to share
+          this beautiful day with you.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
