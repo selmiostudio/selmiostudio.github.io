@@ -171,7 +171,7 @@ button {
 .opening__names {
   position: absolute;
   top: 34.5%;
-  left: 52%;
+  left: 54%;
   transform: translateX(-50%) rotate(-2deg);
   transform-origin: center center;
   width: max-content;
