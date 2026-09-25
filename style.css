@@ -170,8 +170,8 @@ button {
 
 .opening__names {
   position: absolute;
-  top: 40%;
-  left: 40%;
+  top: 50%;
+  left: 60%;
   transform: translateX(-50%);
   width: max-content;
   max-width: 80vw;
