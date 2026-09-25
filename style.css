@@ -172,7 +172,7 @@ button {
   position: absolute;
   top: 34.5%;
   left: 50%;
-  transform: translateX(-50%) rotate(-1.3deg);
+  transform: translateX(-50%) rotate(-2deg);
   transform-origin: center center;
   width: max-content;
   max-width: 80vw;
