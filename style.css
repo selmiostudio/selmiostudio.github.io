@@ -149,11 +149,7 @@ button {
 }
 
 .opening__line--top {
-  position: absolute;
-  top: 17%;
-  left: 50%;
-  width: 68px;
-  transform: translateX(-50%);
+  display: none;
 }
 
 .opening__trigger {
