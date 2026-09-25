@@ -1666,7 +1666,7 @@ button {
     width: 90%;
     max-width: none;
 
-    color: #641f2d;
+    color: #f5e9eb;
     font-size: 12px;
     font-weight: 600;
     line-height: 1.4;
@@ -1702,7 +1702,7 @@ button {
     bottom: 7.5%;
     transform: translateX(-50%);
 
-    color: #641f2d;
+    color: #f5e9eb;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: .28em;
