@@ -1,10 +1,9 @@
 /* =========================================================
    SELMIO — WEDDING INVITATION
-   INTERACTIONS
+   COMPLETE INTERACTIONS
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-
 
   /* =======================================================
      01 — OPENING INVITATION
@@ -13,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const opening =
     document.getElementById("opening");
 
-  const openingButton =
-    document.getElementById("openingButton");
+  const openingTrigger =
+    document.getElementById("openingTrigger");
 
   let invitationOpened = false;
 
@@ -31,66 +30,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     invitationOpened = true;
 
-
-    /*
-      Start the soft cinematic
-      transition to the website.
-    */
-
     opening.classList.add("is-opening");
 
-
-    /*
-      Unlock the page shortly
-      after the transition begins.
-    */
-
-    setTimeout(() => {
-
-      document.body.classList.remove("locked");
-
-    }, 500);
-
-
-    /*
-      Hide the opening screen
-      after the fade animation.
-    */
 
     setTimeout(() => {
 
       opening.classList.add("is-hidden");
 
-      opening.setAttribute(
-        "aria-hidden",
-        "true"
-      );
+      document.body.classList.remove("is-locked");
 
-    }, 1100);
+    }, 850);
 
-
-    /*
-      Completely remove it from
-      the page after the animation.
-    */
 
     setTimeout(() => {
 
       opening.style.display = "none";
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
-    }, 1600);
+    }, 1900);
 
   }
 
 
-  if (openingButton) {
+  if (openingTrigger) {
 
-    openingButton.addEventListener(
+    openingTrigger.addEventListener(
       "click",
       openInvitation
     );
@@ -116,17 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("seconds");
 
 
-  /*
-    Wedding:
-    24 May 2027
-    17:00
-    Lake Como, Italy
-  */
-
   const weddingDate =
-    new Date(
-      "2027-05-24T17:00:00+02:00"
-    );
+    new Date("2027-05-24T17:00:00+02:00");
 
 
   function updateCountdown() {
@@ -141,9 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    const now =
-      new Date();
-
+    const now = new Date();
 
     const difference =
       weddingDate.getTime() -
@@ -152,17 +104,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (difference <= 0) {
 
-      daysElement.textContent =
-        "000";
-
-      hoursElement.textContent =
-        "00";
-
-      minutesElement.textContent =
-        "00";
-
-      secondsElement.textContent =
-        "00";
+      daysElement.textContent = "000";
+      hoursElement.textContent = "00";
+      minutesElement.textContent = "00";
+      secondsElement.textContent = "00";
 
       return;
 
@@ -207,37 +152,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     daysElement.textContent =
-      String(days).padStart(
-        3,
-        "0"
-      );
-
+      String(days).padStart(3, "0");
 
     hoursElement.textContent =
-      String(hours).padStart(
-        2,
-        "0"
-      );
-
+      String(hours).padStart(2, "0");
 
     minutesElement.textContent =
-      String(minutes).padStart(
-        2,
-        "0"
-      );
-
+      String(minutes).padStart(2, "0");
 
     secondsElement.textContent =
-      String(seconds).padStart(
-        2,
-        "0"
-      );
+      String(seconds).padStart(2, "0");
 
   }
 
 
   updateCountdown();
-
 
   setInterval(
     updateCountdown,
@@ -247,38 +176,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =======================================================
-     03 — GALLERY
+     03 — MOBILE GALLERY
   ======================================================= */
 
   const galleryGrid =
-    document.getElementById(
-      "galleryGrid"
-    );
-
+    document.getElementById("galleryGrid");
 
   const galleryPrev =
-    document.getElementById(
-      "galleryPrev"
-    );
-
+    document.getElementById("galleryPrev");
 
   const galleryNext =
-    document.getElementById(
-      "galleryNext"
-    );
-
+    document.getElementById("galleryNext");
 
   const galleryCounter =
-    document.getElementById(
-      "galleryCounter"
-    );
+    document.getElementById("galleryCounter");
 
 
   const galleryItems =
     galleryGrid
       ? Array.from(
           galleryGrid.querySelectorAll(
-            "figure"
+            ".gallery__item"
           )
         )
       : [];
@@ -311,38 +229,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     if (index < 0) {
-
-      index =
-        galleryItems.length - 1;
-
+      index = galleryItems.length - 1;
     }
 
 
-    if (
-      index >=
-      galleryItems.length
-    ) {
-
+    if (index >= galleryItems.length) {
       index = 0;
-
     }
 
 
-    currentGalleryItem =
-      index;
+    currentGalleryItem = index;
 
 
-    galleryItems[
-      currentGalleryItem
-    ].scrollIntoView({
-
-      behavior: "smooth",
-
-      block: "nearest",
-
-      inline: "center"
-
-    });
+    galleryItems[currentGalleryItem]
+      .scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center"
+      });
 
 
     updateGalleryCounter();
@@ -382,6 +286,78 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
+  if (galleryGrid && galleryItems.length) {
+
+    let galleryScrollTimer;
+
+
+    galleryGrid.addEventListener(
+      "scroll",
+      () => {
+
+        clearTimeout(galleryScrollTimer);
+
+
+        galleryScrollTimer =
+          setTimeout(() => {
+
+            const gridCenter =
+              galleryGrid.scrollLeft +
+              galleryGrid.clientWidth / 2;
+
+
+            let closestIndex = 0;
+            let closestDistance = Infinity;
+
+
+            galleryItems.forEach(
+              (item, index) => {
+
+                const itemCenter =
+                  item.offsetLeft +
+                  item.offsetWidth / 2;
+
+
+                const distance =
+                  Math.abs(
+                    gridCenter -
+                    itemCenter
+                  );
+
+
+                if (
+                  distance <
+                  closestDistance
+                ) {
+
+                  closestDistance =
+                    distance;
+
+                  closestIndex =
+                    index;
+
+                }
+
+              }
+            );
+
+
+            currentGalleryItem =
+              closestIndex;
+
+            updateGalleryCounter();
+
+          }, 100);
+
+      },
+      {
+        passive: true
+      }
+    );
+
+  }
+
+
   updateGalleryCounter();
 
 
@@ -395,18 +371,15 @@ document.addEventListener("DOMContentLoaded", () => {
       'input[name="attendance"]'
     );
 
-
   const guestDetails =
     document.getElementById(
       "guestDetails"
     );
 
-
   const guestCount =
     document.getElementById(
       "guestCount"
     );
-
 
   const companionNames =
     document.getElementById(
@@ -421,15 +394,12 @@ document.addEventListener("DOMContentLoaded", () => {
         "change",
         () => {
 
-
           if (!guestDetails) {
             return;
           }
 
 
-          if (
-            option.value === "yes"
-          ) {
+          if (option.value === "yes") {
 
             guestDetails.classList.add(
               "is-visible"
@@ -443,18 +413,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             if (guestCount) {
-
-              guestCount.value =
-                "1";
-
+              guestCount.value = "1";
             }
 
 
             if (companionNames) {
-
-              companionNames.value =
-                "";
-
+              companionNames.value = "";
             }
 
           }
@@ -469,19 +433,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* =======================================================
      05 — RSVP FORM
-     DEMO MODE
+     PORTFOLIO DEMO MODE
   ======================================================= */
 
   const rsvpForm =
-    document.getElementById(
-      "rsvpForm"
-    );
-
+    document.getElementById("rsvpForm");
 
   const rsvpStatus =
-    document.getElementById(
-      "rsvpStatus"
-    );
+    document.getElementById("rsvpStatus");
 
 
   if (rsvpForm) {
@@ -489,7 +448,6 @@ document.addEventListener("DOMContentLoaded", () => {
     rsvpForm.addEventListener(
       "submit",
       (event) => {
-
 
         event.preventDefault();
 
@@ -508,9 +466,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const guestName =
           guestNameInput
-            ? guestNameInput
-                .value
-                .trim()
+            ? guestNameInput.value.trim()
             : "";
 
 
@@ -522,9 +478,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const guestMessage =
           guestMessageInput
-            ? guestMessageInput
-                .value
-                .trim()
+            ? guestMessageInput.value.trim()
             : "";
 
 
@@ -545,49 +499,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        /*
-          DEMO MODE
-
-          RSVP information is currently
-          not sent to a database.
-        */
-
-
         const rsvpData = {
 
           name:
             guestName,
 
-
           attendance:
             attendance.value,
-
 
           guestCount:
             attendance.value === "yes" &&
             guestCount
-              ? Number(
-                  guestCount.value
-                )
+              ? Number(guestCount.value)
               : 0,
-
 
           companions:
             attendance.value === "yes" &&
             companionNames
-              ? companionNames
-                  .value
-                  .trim()
+              ? companionNames.value.trim()
               : "",
-
 
           message:
             guestMessage,
 
-
           submittedAt:
-            new Date()
-              .toISOString()
+            new Date().toISOString()
 
         };
 
@@ -632,7 +568,7 @@ document.addEventListener("DOMContentLoaded", () => {
             true;
 
           submitButton.style.opacity =
-            "0.7";
+            "0.65";
 
         }
 
@@ -660,11 +596,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "click",
         (event) => {
 
-
           const targetId =
-            link.getAttribute(
-              "href"
-            );
+            link.getAttribute("href");
 
 
           if (
@@ -690,11 +623,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
           target.scrollIntoView({
-
             behavior: "smooth",
-
             block: "start"
-
           });
 
         }
@@ -702,6 +632,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
   );
-
 
 });
