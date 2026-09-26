@@ -1663,52 +1663,71 @@ button {
     top: 15.5%;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
-    max-width: none;
 
-    color: #4a0b18;
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 1.4;
-    letter-spacing: .22em;
+    width: 92%;
+    max-width: none;
+    margin: 0;
+
+    color: #541725;
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: .18em;
 
     text-align: center;
     white-space: nowrap;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, .45);
+
+    text-shadow:
+      0 1px 1px rgba(255, 255, 255, .75),
+      0 0 5px rgba(255, 255, 255, .35);
   }
+
 
   /* Amelia & Oliver */
   .opening__names {
     top: 47.5%;
     left: 49%;
+
     transform: translateX(-50%) rotate(-2deg);
     transform-origin: center center;
 
     width: max-content;
-    max-width: 76%;
+    max-width: 74%;
 
-    color: #641f2d;
-    font-size: 22px;
+    color: #541725;
+    font-family: var(--serif);
+    font-size: 20px;
     font-weight: 500;
     line-height: 1;
 
     text-align: center;
     white-space: nowrap;
+
+    text-shadow:
+      0 1px 1px rgba(255, 255, 255, .45);
   }
+
 
   /* TAP TO OPEN */
   .opening__tap {
     left: 50%;
     bottom: 7.5%;
+
     transform: translateX(-50%);
 
-    color: #4a0b18;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: .28em;
+    color: #541725;
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: .24em;
 
     white-space: nowrap;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, .5);
+
+    text-shadow:
+      0 1px 1px rgba(255, 255, 255, .75),
+      0 0 5px rgba(255, 255, 255, .35);
   }
 
 }
