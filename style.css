@@ -1660,6 +1660,7 @@ button {
 
   /* A SPECIAL INVITATION FOR YOU */
   .opening__eyebrow {
+    top: 18%;
     color: #fff8ef;
     font-size: 18px;
     font-weight: 1000;
