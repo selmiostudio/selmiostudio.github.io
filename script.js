@@ -18,6 +18,34 @@ document.addEventListener("DOMContentLoaded", () => {
   let invitationOpened = false;
 
 
+  /* =======================================================
+     01A — BACKGROUND MUSIC
+  ======================================================= */
+
+  const weddingMusic =
+    new Audio("audio/wedding-music.mp3");
+
+  weddingMusic.loop = true;
+  weddingMusic.volume = 0.45;
+  weddingMusic.preload = "auto";
+
+
+  function startWeddingMusic() {
+
+    weddingMusic
+      .play()
+      .catch((error) => {
+
+        console.log(
+          "Music playback was prevented:",
+          error
+        );
+
+      });
+
+  }
+
+
   function openInvitation() {
 
     if (
@@ -29,6 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     invitationOpened = true;
+
+
+    /* Start music directly from the guest's click */
+    startWeddingMusic();
+
 
     opening.classList.add("is-opening");
 
