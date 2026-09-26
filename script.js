@@ -27,7 +27,83 @@ document.addEventListener("DOMContentLoaded", () => {
 
   weddingMusic.loop = true;
   weddingMusic.volume = 0.45;
-  weddingMusic.preload = "auto";
+  weddingMusic.preload = "auto"; 
+   /* Music control button */
+
+const musicButton =
+  document.createElement("button");
+
+musicButton.className = "music-toggle";
+musicButton.type = "button";
+musicButton.setAttribute(
+  "aria-label",
+  "Pause music"
+);
+
+musicButton.innerHTML = `
+  <span class="music-toggle__icon">♪</span>
+`;
+
+document.body.appendChild(musicButton);
+
+
+function updateMusicButton() {
+
+  if (weddingMusic.paused) {
+
+    musicButton.classList.remove("is-playing");
+
+    musicButton.setAttribute(
+      "aria-label",
+      "Play music"
+    );
+
+  } else {
+
+    musicButton.classList.add("is-playing");
+
+    musicButton.setAttribute(
+      "aria-label",
+      "Pause music"
+    );
+
+  }
+
+}
+
+
+musicButton.addEventListener(
+  "click",
+  () => {
+
+    if (weddingMusic.paused) {
+
+      weddingMusic
+        .play()
+        .then(updateMusicButton)
+        .catch(() => {});
+
+    } else {
+
+      weddingMusic.pause();
+
+      updateMusicButton();
+
+    }
+
+  }
+);
+
+
+weddingMusic.addEventListener(
+  "play",
+  updateMusicButton
+);
+
+weddingMusic.addEventListener(
+  "pause",
+  updateMusicButton
+);
 
 
   function startWeddingMusic() {
