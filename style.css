@@ -1714,3 +1714,104 @@ button {
       0 1px 1px rgba(255, 255, 255, .75);
   }
 }
+/* =========================================================
+   MUSIC CONTROL
+========================================================= */
+
+.music-toggle {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 5000;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(84, 23, 37, 0.22);
+  border-radius: 50%;
+
+  background: rgba(248, 241, 233, 0.92);
+  color: #541725;
+
+  box-shadow:
+    0 8px 30px rgba(65, 35, 38, 0.12);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  cursor: pointer;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity .4s ease,
+    visibility .4s ease,
+    transform .3s ease,
+    background .3s ease;
+}
+
+
+body:not(.is-locked) .music-toggle {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.music-toggle:hover {
+  transform: translateY(-2px);
+  background: #fffaf5;
+}
+
+
+.music-toggle__icon {
+  display: block;
+
+  font-family: Georgia, serif;
+  font-size: 22px;
+  line-height: 1;
+
+  transform-origin: center;
+}
+
+
+.music-toggle.is-playing .music-toggle__icon {
+  animation: musicPulse 1.8s ease-in-out infinite;
+}
+
+
+@keyframes musicPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: .75;
+  }
+
+  50% {
+    transform: scale(1.16);
+    opacity: 1;
+  }
+
+}
+
+
+@media (max-width: 767px) {
+
+  .music-toggle {
+    right: 16px;
+    bottom: 18px;
+
+    width: 44px;
+    height: 44px;
+  }
+
+  .music-toggle__icon {
+    font-size: 20px;
+  }
+
+}
