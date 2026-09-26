@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
      01A — BACKGROUND MUSIC
   ======================================================= */
 
-  const weddingMusic =
-    new Audio("audio/wedding-music.mp3");
+ const weddingMusic =
+  new Audio("audio/wedding-music.mp3.mp3");
 
   weddingMusic.loop = true;
   weddingMusic.volume = 0.45;
