@@ -1660,28 +1660,16 @@ button {
 
   /* A SPECIAL INVITATION FOR YOU */
   .opening__eyebrow {
-    top: 15.5%;
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: 92%;
-    max-width: none;
-    margin: 0;
-
-    color: #541725;
-    font-family: var(--serif);
+    color: #fff8ef;
     font-size: 13px;
-    font-weight: 700;
-    line-height: 1.35;
-    letter-spacing: .18em;
-
-    text-align: center;
-    white-space: nowrap;
+    font-weight: 800;
+    letter-spacing: .16em;
 
     text-shadow:
-      0 1px 1px rgba(255, 255, 255, .75),
-      0 0 5px rgba(255, 255, 255, .35);
+      0 1px 2px rgba(70, 18, 30, .95),
+      0 2px 5px rgba(70, 18, 30, .65);
   }
+
 
 
   /* Amelia & Oliver */
@@ -1711,23 +1699,12 @@ button {
 
   /* TAP TO OPEN */
   .opening__tap {
-    left: 50%;
-    bottom: 7.5%;
-
-    transform: translateX(-50%);
-
-    color: #541725;
-    font-family: var(--serif);
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: .24em;
-
-    white-space: nowrap;
+    color: #4b1421;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: .22em;
 
     text-shadow:
-      0 1px 1px rgba(255, 255, 255, .75),
-      0 0 5px rgba(255, 255, 255, .35);
+      0 1px 1px rgba(255, 255, 255, .75);
   }
-
 }
