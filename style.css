@@ -1828,3 +1828,10 @@ body:not(.is-locked) .music-toggle {
   }
 
 }
+/* SAVE THE DATE — MOBILE ONLY */
+@media (max-width: 700px) {
+  .save-date__intro h2 {
+    font-size: clamp(40px, 11.5vw, 54px);
+    white-space: nowrap;
+  }
+}
