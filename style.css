@@ -1658,35 +1658,33 @@ button {
 }
 @media (max-width: 767px) {
 
-/* A SPECIAL INVITATION FOR YOU */
+/* A SPECIAL INVITATION FOR YOU — MOBILE */
 .opening__eyebrow {
-  top: 17%;
-  left: 59%;
+  top: 31%;
+  left: 50%;
   transform: translateX(-50%);
 
-  width: 68%;
+  width: 90%;
   max-width: none;
   padding: 0;
+  margin: 0;
 
   color: #641c2d;
 
-  font-size: 15px;
+  font-family: var(--serif);
+  font-size: 14px;
   font-weight: 700;
-  line-height: 1.5;
-  letter-spacing: .15em;
+  line-height: 1;
+  letter-spacing: .18em;
 
   text-align: center;
+  white-space: nowrap;
 
   background: transparent;
+  box-shadow: none;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  box-shadow: none;
-  border-radius: 0;
-
-  text-shadow:
-    0 1px 1px rgba(255,255,255,.9);
-
-  white-space: normal;
+  text-shadow: none;
 }
   /* Amelia & Oliver */
   .opening__names {
