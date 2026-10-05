@@ -22,88 +22,95 @@ document.addEventListener("DOMContentLoaded", () => {
      01A — BACKGROUND MUSIC
   ======================================================= */
 
- const weddingMusic =
-  new Audio("audio/wedding-music.mp3.mp3");
+  const weddingMusic =
+    new Audio("audio/wedding-music.mp3.mp3");
 
   weddingMusic.loop = true;
   weddingMusic.volume = 0.45;
-  weddingMusic.preload = "auto"; 
-   /* Music control button */
-
-const musicButton =
-  document.createElement("button");
-
-musicButton.className = "music-toggle";
-musicButton.type = "button";
-musicButton.setAttribute(
-  "aria-label",
-  "Pause music"
-);
-
-musicButton.innerHTML = `
-  <span class="music-toggle__icon">♪</span>
-`;
-
-document.body.appendChild(musicButton);
+  weddingMusic.preload = "auto";
 
 
-function updateMusicButton() {
+  /* Music control button */
 
-  if (weddingMusic.paused) {
+  const musicButton =
+    document.createElement("button");
 
-    musicButton.classList.remove("is-playing");
+  musicButton.className = "music-toggle";
+  musicButton.type = "button";
 
-    musicButton.setAttribute(
-      "aria-label",
-      "Play music"
-    );
+  musicButton.setAttribute(
+    "aria-label",
+    "Pause music"
+  );
 
-  } else {
+  musicButton.innerHTML = `
+    <span class="music-toggle__icon">♪</span>
+  `;
 
-    musicButton.classList.add("is-playing");
-
-    musicButton.setAttribute(
-      "aria-label",
-      "Pause music"
-    );
-
-  }
-
-}
+  document.body.appendChild(musicButton);
 
 
-musicButton.addEventListener(
-  "click",
-  () => {
+  function updateMusicButton() {
 
     if (weddingMusic.paused) {
 
-      weddingMusic
-        .play()
-        .then(updateMusicButton)
-        .catch(() => {});
+      musicButton.classList.remove(
+        "is-playing"
+      );
+
+      musicButton.setAttribute(
+        "aria-label",
+        "Play music"
+      );
 
     } else {
 
-      weddingMusic.pause();
+      musicButton.classList.add(
+        "is-playing"
+      );
 
-      updateMusicButton();
+      musicButton.setAttribute(
+        "aria-label",
+        "Pause music"
+      );
 
     }
 
   }
-);
 
 
-weddingMusic.addEventListener(
-  "play",
-  updateMusicButton
-);
+  musicButton.addEventListener(
+    "click",
+    () => {
 
-weddingMusic.addEventListener(
-  "pause",
-  updateMusicButton
-);
+      if (weddingMusic.paused) {
+
+        weddingMusic
+          .play()
+          .then(updateMusicButton)
+          .catch(() => {});
+
+      } else {
+
+        weddingMusic.pause();
+
+        updateMusicButton();
+
+      }
+
+    }
+  );
+
+
+  weddingMusic.addEventListener(
+    "play",
+    updateMusicButton
+  );
+
+  weddingMusic.addEventListener(
+    "pause",
+    updateMusicButton
+  );
 
 
   function startWeddingMusic() {
@@ -139,21 +146,28 @@ weddingMusic.addEventListener(
     startWeddingMusic();
 
 
-    opening.classList.add("is-opening");
+    opening.classList.add(
+      "is-opening"
+    );
 
 
     setTimeout(() => {
 
-      opening.classList.add("is-hidden");
+      opening.classList.add(
+        "is-hidden"
+      );
 
-      document.body.classList.remove("is-locked");
+      document.body.classList.remove(
+        "is-locked"
+      );
 
     }, 850);
 
 
     setTimeout(() => {
 
-      opening.style.display = "none";
+      opening.style.display =
+        "none";
 
     }, 1900);
 
@@ -189,7 +203,9 @@ weddingMusic.addEventListener(
 
 
   const weddingDate =
-    new Date("2027-05-24T17:00:00+02:00");
+    new Date(
+      "2027-05-24T17:00:00+02:00"
+    );
 
 
   function updateCountdown() {
@@ -204,7 +220,8 @@ weddingMusic.addEventListener(
     }
 
 
-    const now = new Date();
+    const now =
+      new Date();
 
     const difference =
       weddingDate.getTime() -
@@ -213,10 +230,17 @@ weddingMusic.addEventListener(
 
     if (difference <= 0) {
 
-      daysElement.textContent = "000";
-      hoursElement.textContent = "00";
-      minutesElement.textContent = "00";
-      secondsElement.textContent = "00";
+      daysElement.textContent =
+        "000";
+
+      hoursElement.textContent =
+        "00";
+
+      minutesElement.textContent =
+        "00";
+
+      secondsElement.textContent =
+        "00";
 
       return;
 
@@ -261,16 +285,28 @@ weddingMusic.addEventListener(
 
 
     daysElement.textContent =
-      String(days).padStart(3, "0");
+      String(days).padStart(
+        3,
+        "0"
+      );
 
     hoursElement.textContent =
-      String(hours).padStart(2, "0");
+      String(hours).padStart(
+        2,
+        "0"
+      );
 
     minutesElement.textContent =
-      String(minutes).padStart(2, "0");
+      String(minutes).padStart(
+        2,
+        "0"
+      );
 
     secondsElement.textContent =
-      String(seconds).padStart(2, "0");
+      String(seconds).padStart(
+        2,
+        "0"
+      );
 
   }
 
@@ -289,16 +325,24 @@ weddingMusic.addEventListener(
   ======================================================= */
 
   const galleryGrid =
-    document.getElementById("galleryGrid");
+    document.getElementById(
+      "galleryGrid"
+    );
 
   const galleryPrev =
-    document.getElementById("galleryPrev");
+    document.getElementById(
+      "galleryPrev"
+    );
 
   const galleryNext =
-    document.getElementById("galleryNext");
+    document.getElementById(
+      "galleryNext"
+    );
 
   const galleryCounter =
-    document.getElementById("galleryCounter");
+    document.getElementById(
+      "galleryCounter"
+    );
 
 
   const galleryItems =
@@ -311,7 +355,8 @@ weddingMusic.addEventListener(
       : [];
 
 
-  let currentGalleryItem = 0;
+  let currentGalleryItem =
+    0;
 
 
   function updateGalleryCounter() {
@@ -330,7 +375,9 @@ weddingMusic.addEventListener(
   }
 
 
-  function scrollToGalleryItem(index) {
+  function scrollToGalleryItem(
+    index
+  ) {
 
     if (!galleryItems.length) {
       return;
@@ -338,24 +385,30 @@ weddingMusic.addEventListener(
 
 
     if (index < 0) {
-      index = galleryItems.length - 1;
+      index =
+        galleryItems.length - 1;
     }
 
 
-    if (index >= galleryItems.length) {
+    if (
+      index >=
+      galleryItems.length
+    ) {
       index = 0;
     }
 
 
-    currentGalleryItem = index;
+    currentGalleryItem =
+      index;
 
 
-    galleryItems[currentGalleryItem]
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center"
-      });
+    galleryItems[
+      currentGalleryItem
+    ].scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center"
+    });
 
 
     updateGalleryCounter();
@@ -395,7 +448,10 @@ weddingMusic.addEventListener(
   }
 
 
-  if (galleryGrid && galleryItems.length) {
+  if (
+    galleryGrid &&
+    galleryItems.length
+  ) {
 
     let galleryScrollTimer;
 
@@ -404,7 +460,9 @@ weddingMusic.addEventListener(
       "scroll",
       () => {
 
-        clearTimeout(galleryScrollTimer);
+        clearTimeout(
+          galleryScrollTimer
+        );
 
 
         galleryScrollTimer =
@@ -412,11 +470,15 @@ weddingMusic.addEventListener(
 
             const gridCenter =
               galleryGrid.scrollLeft +
-              galleryGrid.clientWidth / 2;
+              galleryGrid.clientWidth /
+                2;
 
 
-            let closestIndex = 0;
-            let closestDistance = Infinity;
+            let closestIndex =
+              0;
+
+            let closestDistance =
+              Infinity;
 
 
             galleryItems.forEach(
@@ -424,7 +486,8 @@ weddingMusic.addEventListener(
 
                 const itemCenter =
                   item.offsetLeft +
-                  item.offsetWidth / 2;
+                  item.offsetWidth /
+                    2;
 
 
                 const distance =
@@ -508,7 +571,9 @@ weddingMusic.addEventListener(
           }
 
 
-          if (option.value === "yes") {
+          if (
+            option.value === "yes"
+          ) {
 
             guestDetails.classList.add(
               "is-visible"
@@ -540,16 +605,21 @@ weddingMusic.addEventListener(
 
 
 
-   /* =======================================================
+  /* =======================================================
      05 — RSVP FORM
      GOOGLE SHEETS
   ======================================================= */
 
   const rsvpForm =
-    document.getElementById("rsvpForm");
+    document.getElementById(
+      "rsvpForm"
+    );
 
   const rsvpStatus =
-    document.getElementById("rsvpStatus");
+    document.getElementById(
+      "rsvpStatus"
+    );
+
 
   const RSVP_ENDPOINT =
     "https://script.google.com/macros/s/AKfycbz27Xd6R-wSjDV_yW3DM_VAdfsCsqQp6TI_7ZTR1ml_uRDb1n3NfhjvF0AvGMxkGbR9tg/exec";
@@ -611,33 +681,44 @@ weddingMusic.addEventListener(
         }
 
 
-        const rsvpData = {
+        const formData =
+          new URLSearchParams();
 
-          name:
-            guestName,
 
-          attendance:
-            attendance.value,
+        formData.append(
+          "name",
+          guestName
+        );
 
-          guestCount:
-            attendance.value === "yes" &&
-            guestCount
-              ? Number(guestCount.value)
-              : 0,
 
-          companions:
-            attendance.value === "yes" &&
-            companionNames
-              ? companionNames.value.trim()
-              : "",
+        formData.append(
+          "attendance",
+          attendance.value
+        );
 
-          message:
-            guestMessage,
 
-          submittedAt:
-            new Date().toISOString()
+        formData.append(
+          "guestCount",
+          attendance.value === "yes" &&
+          guestCount
+            ? guestCount.value
+            : "0"
+        );
 
-        };
+
+        formData.append(
+          "companions",
+          attendance.value === "yes" &&
+          companionNames
+            ? companionNames.value.trim()
+            : ""
+        );
+
+
+        formData.append(
+          "message",
+          guestMessage
+        );
 
 
         const submitButton =
@@ -648,7 +729,8 @@ weddingMusic.addEventListener(
 
         if (submitButton) {
 
-          submitButton.disabled = true;
+          submitButton.disabled =
+            true;
 
           submitButton.textContent =
             "SENDING...";
@@ -674,10 +756,15 @@ weddingMusic.addEventListener(
             {
               method: "POST",
 
+              mode: "no-cors",
+
+              headers: {
+                "Content-Type":
+                  "application/x-www-form-urlencoded;charset=UTF-8"
+              },
+
               body:
-                JSON.stringify(
-                  rsvpData
-                )
+                formData.toString()
             }
           );
 
@@ -685,7 +772,8 @@ weddingMusic.addEventListener(
           if (rsvpStatus) {
 
             if (
-              attendance.value === "yes"
+              attendance.value ===
+              "yes"
             ) {
 
               rsvpStatus.textContent =
@@ -713,7 +801,6 @@ weddingMusic.addEventListener(
               "0.65";
 
           }
-
 
         } catch (error) {
 
@@ -751,6 +838,8 @@ weddingMusic.addEventListener(
 
   }
 
+
+
   /* =======================================================
      06 — SMOOTH INTERNAL LINKS
   ======================================================= */
@@ -769,7 +858,9 @@ weddingMusic.addEventListener(
         (event) => {
 
           const targetId =
-            link.getAttribute("href");
+            link.getAttribute(
+              "href"
+            );
 
 
           if (
