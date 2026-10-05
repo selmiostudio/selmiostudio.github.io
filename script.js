@@ -540,9 +540,9 @@ weddingMusic.addEventListener(
 
 
 
-  /* =======================================================
+   /* =======================================================
      05 — RSVP FORM
-     PORTFOLIO DEMO MODE
+     GOOGLE SHEETS
   ======================================================= */
 
   const rsvpForm =
@@ -551,12 +551,15 @@ weddingMusic.addEventListener(
   const rsvpStatus =
     document.getElementById("rsvpStatus");
 
+  const RSVP_ENDPOINT =
+    "https://script.google.com/macros/s/AKfycbz27Xd6R-wSjDV_yW3DM_VAdfsCsqQp6TI_7ZTR1ml_uRDb1n3NfhjvF0AvGMxkGbR9tg/exec";
+
 
   if (rsvpForm) {
 
     rsvpForm.addEventListener(
       "submit",
-      (event) => {
+      async (event) => {
 
         event.preventDefault();
 
@@ -637,31 +640,6 @@ weddingMusic.addEventListener(
         };
 
 
-        console.log(
-          "RSVP DEMO:",
-          rsvpData
-        );
-
-
-        if (rsvpStatus) {
-
-          if (
-            attendance.value === "yes"
-          ) {
-
-            rsvpStatus.textContent =
-              `Thank you, ${guestName}. We can't wait to celebrate with you!`;
-
-          } else {
-
-            rsvpStatus.textContent =
-              `Thank you for letting us know, ${guestName}. You will be missed!`;
-
-          }
-
-        }
-
-
         const submitButton =
           rsvpForm.querySelector(
             ".rsvp-form__submit"
@@ -670,14 +648,101 @@ weddingMusic.addEventListener(
 
         if (submitButton) {
 
-          submitButton.textContent =
-            "RSVP RECEIVED";
+          submitButton.disabled = true;
 
-          submitButton.disabled =
-            true;
+          submitButton.textContent =
+            "SENDING...";
 
           submitButton.style.opacity =
             "0.65";
+
+        }
+
+
+        if (rsvpStatus) {
+
+          rsvpStatus.textContent =
+            "Sending your RSVP...";
+
+        }
+
+
+        try {
+
+          await fetch(
+            RSVP_ENDPOINT,
+            {
+              method: "POST",
+
+              body:
+                JSON.stringify(
+                  rsvpData
+                )
+            }
+          );
+
+
+          if (rsvpStatus) {
+
+            if (
+              attendance.value === "yes"
+            ) {
+
+              rsvpStatus.textContent =
+                `Thank you, ${guestName}. We can't wait to celebrate with you!`;
+
+            } else {
+
+              rsvpStatus.textContent =
+                `Thank you for letting us know, ${guestName}. You will be missed!`;
+
+            }
+
+          }
+
+
+          if (submitButton) {
+
+            submitButton.textContent =
+              "RSVP RECEIVED";
+
+            submitButton.disabled =
+              true;
+
+            submitButton.style.opacity =
+              "0.65";
+
+          }
+
+
+        } catch (error) {
+
+          console.error(
+            "RSVP submission error:",
+            error
+          );
+
+
+          if (rsvpStatus) {
+
+            rsvpStatus.textContent =
+              "We couldn't send your RSVP. Please try again.";
+
+          }
+
+
+          if (submitButton) {
+
+            submitButton.textContent =
+              "SEND RSVP";
+
+            submitButton.disabled =
+              false;
+
+            submitButton.style.opacity =
+              "1";
+
+          }
 
         }
 
@@ -685,8 +750,6 @@ weddingMusic.addEventListener(
     );
 
   }
-
-
 
   /* =======================================================
      06 — SMOOTH INTERNAL LINKS
